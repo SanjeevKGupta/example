@@ -1,0 +1,18 @@
+{
+    "label": "Edge $SERVICE_NAME service pattern for RPi",
+    "description": "Pattern for $SERVICE_NAME providing MQTT broker",
+    "public": true,
+    "services": [
+	{
+	    "serviceUrl": "$MYDOMAIN.$SERVICE_NAME",
+	    "serviceOrgid": "$HZN_ORG_ID",
+	    "serviceArch": "arm",
+	    "serviceVersions": [
+		{
+		    "version": "$SERVICE_VERSION"
+		}
+	    ]
+	}
+    ]
+}
+	     

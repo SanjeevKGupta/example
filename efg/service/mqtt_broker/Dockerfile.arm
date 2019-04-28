@@ -1,0 +1,12 @@
+FROM alpine:latest
+
+RUN apk add --no-cache \
+    mosquitto \
+    mosquitto-clients
+
+WORKDIR /
+
+COPY src/mqtt_broker.sh .
+
+CMD /mqtt_broker.sh
+

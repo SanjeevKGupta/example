@@ -1,0 +1,17 @@
+{
+    "label": "Edge $SERVICE_NAME Service Pattern for RPi",
+    "description": "Pattern for $SERVICE_NAME showing information on OLED display",
+    "public": true,
+    "services": [
+	{"serviceUrl": "$MYDOMAIN.$SERVICE_NAME",
+	 "serviceOrgid": "$HZN_ORG_ID",
+	 "serviceArch": "arm",
+	 "serviceVersions": [
+             {
+		 "version": "$SERVICE_VERSION"
+	     }
+	 ]
+	}
+    ]
+}
+	     

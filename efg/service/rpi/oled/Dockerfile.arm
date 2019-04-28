@@ -1,0 +1,30 @@
+#
+# Multi stage Docker build
+#
+#############################################################
+# 1st stage to build library to be used by the main program #
+#############################################################
+
+FROM ubuntu:bionic
+
+RUN apt-get update
+RUN apt-get install -y git
+RUN apt-get install -y build-essential
+
+# Build the library
+RUN git clone git://git.drogon.net/wiringPi
+RUN cd wiringPi/wiringPi && make install
+
+# Build the program
+COPY src/ /tmp/src
+RUN cd /tmp/src && make
+
+#############################################################
+# 2nd stage with built library with trimmed program size    #
+#############################################################
+
+FROM ubuntu:18.04
+COPY --from=0 /tmp/src/rpi_i2c_oled.* rpi_i2c_oled
+COPY --from=0 /usr/local/lib/ /usr/lib
+
+CMD ["./rpi_i2c_oled"]

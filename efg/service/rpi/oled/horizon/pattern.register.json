@@ -1,0 +1,15 @@
+{
+    "services": [
+        {
+	    "org": "$HZN_ORG_ID",
+	    "url": "$MYDOMAIN.$SERVICE_NAME",
+	    "versionRange": "[0.0.0,INFINITY)",
+	    "variables": {
+                "EVENT_STREAM_API_KEY": "$EVENT_STREAM_API_KEY",
+		"MOCK": false,
+		"PUBLISH": true,
+		"VERBOSE": "1"
+	    }
+	}
+    ]
+}

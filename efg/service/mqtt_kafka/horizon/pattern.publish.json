@@ -1,0 +1,18 @@
+{
+    "label": "$SERVICE_NAME_MQTT_KAFKA",
+    "description": "Pattern for $SERVICE_NAME_MQTT_KAFKA providing MQTT Kafka",
+    "public": true,
+    "services": [
+	{
+	    "serviceUrl": "$MYDOMAIN.$SERVICE_NAME_MQTT_KAFKA",
+	    "serviceOrgid": "$HZN_ORG_ID",
+	    "serviceArch": "arm",
+	    "serviceVersions": [
+		{
+		    "version": "$SERVICE_VERSION_MQTT_KAFKA"
+		}
+	    ]
+	}
+    ]
+}
+	     

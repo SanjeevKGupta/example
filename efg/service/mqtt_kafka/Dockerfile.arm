@@ -1,0 +1,21 @@
+FROM arm32v6/alpine:latest
+#FROM alpine:latest
+
+#  ca-certificates \
+# curl \
+#  jq \
+#  socat \
+#  mosquitto-clients \
+#  kafkacat 
+
+# RUN apk --no-cache --update add mosquitto-clients jq curl bc
+RUN apk --no-cache --update add mosquitto-clients jq 
+
+COPY tmp/arm/*.rsa.pub /etc/apk/keys/
+COPY tmp/arm/kafkacat-*.apk /
+RUN apk --no-cache add /kafkacat-*.apk && rm kafkacat-*.apk
+
+COPY src/mqtt_kafka.sh /
+WORKDIR /
+CMD /mqtt_kafka.sh
+

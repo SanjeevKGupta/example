@@ -2,10 +2,9 @@
 # Makefile for Edge Fabric Gateway (efgateway)
 #
 
-# VERSION:= '0.0.1'
 DOCKER_NAME:= arm_mqtt_broker
 
-IMAGE_NAME:= $(DOCKER_HUB_ID)/$(DOCKER_NAME):$(SERVICE_VERSION)
+IMAGE_NAME:= $(DOCKER_HUB_ID)/$(DOCKER_NAME):$(SERVICE_VERSION_MQTT_BROKER)
 
 ARCH:= $(shell hzn node list | jq .configuration.architecture)
 HOST_IP:= $(shell hostname -I | cut -d ' ' -f1)
@@ -39,7 +38,7 @@ publish-service:
 
 #: $${HZN_ORG_ID:?} $${HZN_EXCHANGE_USER_AUTH:?}   # this verifies these env vars are set
 publish-pattern:
-	hzn exchange pattern publish -p $$SERVICE_NAME -f horizon/pattern.publish.json
+	hzn exchange pattern publish -p $$SERVICE_NAME_MQTT_BROKER -f horizon/pattern.publish.json
 
 register-node:
 	hzn register -n $$EXCHANGE_NODEAUTH $$HZN_ORG_ID $$PATTERN -f horizon/pattern.register.json

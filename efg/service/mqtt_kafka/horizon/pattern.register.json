@@ -5,8 +5,8 @@
 	    "url": "$MYDOMAIN.$SERVICE_NAME",
 	    "versionRange": "[0.0.0,INFINITY)",
 	    "variables": {
-		"MOCK": true,
-		"PUBLISH": false
+		"MOCK": false,
+		"PUBLISH": true,
 	    }
 	}
     ]

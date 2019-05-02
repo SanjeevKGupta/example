@@ -2,18 +2,14 @@
 # Makefile for EFG - MQTT Kafka
 #
 
-DOCKER_NAME:= arm_mqtt_kafka
+ARCH:= $(shell hzn node list | jq .configuration.architecture | sed 's/"//g')
 
+DOCKER_NAME:= $(ARCH)_$(SERVICE_NAME_MQTT_KAFKA)
 IMAGE_NAME:= $(DOCKER_HUB_ID)/$(DOCKER_NAME):$(SERVICE_VERSION_MQTT_KAFKA)
-
-ARCH:= $(shell hzn node list | jq .configuration.architecture)
-HOST_IP:= $(shell hostname -I | cut -d ' ' -f1)
 
 default: all
 
-all: build
-#all: build run
-#all: build run check
+all: build run
 
 build:
 	mkdir -p tmp/$(ARCH)
@@ -26,6 +22,9 @@ cli:
 run:
 	-docker rm -f $(IMAGE_NAME) 2>/dev/null || :
 	docker run -d  -e EVENT_STREAM_API_KEY -e EVENT_STREAM_BROKER_URL -e EVENT_STREAM_EFG_TOPIC --net=host $(IMAGE_NAME)
+
+stop:
+	docker stop `docker ps | grep $(IMAGE_NAME) | cut -d' ' -f1`
 
 log:
 	docker logs -f $(DOCKER_NAME)

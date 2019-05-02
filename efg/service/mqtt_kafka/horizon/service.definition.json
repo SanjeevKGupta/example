@@ -51,7 +51,7 @@
     ],
     "deployment": {
         "services": {
-            "mqtt_kafka": {
+            "$SERVICE_NAME_MQTT_KAFKA": {
                 "image": "$DOCKER_HUB_ID/${ARCH}_$SERVICE_NAME_MQTT_KAFKA:$SERVICE_VERSION_MQTT_KAFKA",
                 "privileged": false
             }

@@ -1,16 +1,22 @@
 {
     "services": [
         {
-	    "org": "$HZN_ORG_ID",
-	    "url": "$MYDOMAIN.$SERVICE_NAME_MQTT_KAFKA",
-	    "versionRange": "[0.0.0,INFINITY)",
-	    "variables": {
-                "EVENT_STREAM_API_KEY"    : "$EVENT_STREAM_API_KEY",
-                "EVENT_STREAM_EFG_TOPIC"  : "$EVENT_STREAM_EFG_TOPIC",
-                "EVENT_STREAM_BROKER_URL" : "$EVENT_STREAM_BROKER_URL",
-		"MOCK": true,
-		"PUBLISH": false
-	    }
-	}
+            "org": "$HZN_ORG_ID",
+            "url": "$MYDOMAIN.$SERVICE_NAME_MQTT_KAFKA",
+            "versionRange": "[0.0.0,INFINITY)",
+            "variables": {
+                "EVENT_STREAM_API_KEY": "$EVENT_STREAM_API_KEY",
+                "EVENT_STREAM_BROKER_URL": "$EVENT_STREAM_BROKER_URL",
+                "EVENT_STREAM_EFG_TOPIC": "$EVENT_STREAM_EFG_TOPIC",
+                "MOCK": true,
+                "PUBLISH": false
+            }
+        },
+        {
+            "org": "sanjeev@ibm.com",
+            "url": "com.ibm.example.efg.mqtt_broker",
+            "versionRange": "[0.0.0,INFINITY)",
+            "variables": {}
+        }
     ]
 }

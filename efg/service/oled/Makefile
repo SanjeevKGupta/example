@@ -1,13 +1,11 @@
 #
-# Makefile for MQTT Broker
+# Makefile for I2C Oled
 #
 
 ARCH:= $(shell hzn node list | jq .configuration.architecture | sed 's/"//g')
 
-DOCKER_NAME:= $(ARCH)_$(SERVICE_NAME_MQTT_BROKER)
-IMAGE_NAME:= $(DOCKER_HUB_ID)/$(DOCKER_NAME):$(SERVICE_VERSION_MQTT_BROKER)
-
-HOST_IP:= $(shell hostname -I | cut -d ' ' -f1)
+DOCKER_NAME:= $(ARCH)_$(SERVICE_NAME_I2C_OLED)
+IMAGE_NAME:= $(DOCKER_HUB_ID)/$(DOCKER_NAME):$(SERVICE_VERSION_I2C_OLED)
 
 default: all
 
@@ -18,7 +16,7 @@ build:
 
 run:
 	-docker rm -f $(IMAGE_NAME) 2>/dev/null || :
-	docker run -d -p 1883:1883 --name $(DOCKER_NAME) $(IMAGE_NAME)
+	docker run -d --name $(DOCKER_NAME) --device=/dev/i2c-1:/dev/i2c-1 $(IMAGE_NAME)
 
 stop:
 	docker stop `docker ps | grep $(IMAGE_NAME) | cut -d' ' -f1`
@@ -33,7 +31,7 @@ publish-service:
 	hzn exchange service publish -k $$PRIVATE_KEY_FILE -K $$PUBLIC_KEY_FILE -f horizon/service.definition.json
 
 publish-pattern:
-	hzn exchange pattern publish -p $$SERVICE_NAME_MQTT_BROKER -f horizon/pattern.publish.json
+	hzn exchange pattern publish -p $$SERVICE_NAME_I2C_OLED -f horizon/pattern.publish.$SERVICE_NAME_I2C_OLED.json
 
 register-node:
-	hzn register -n $$EXCHANGE_NODEAUTH $$HZN_ORG_ID $$PATTERN -f horizon/pattern.register.json
+	hzn register -n $$EXCHANGE_NODEAUTH $$HZN_ORG_ID $$PATTERN -f horizon/pattern.register.$SERVICE_NAME_I2C_OLED.json

@@ -1,0 +1,8 @@
+FROM alpine:latest
+
+WORKDIR /
+
+COPY src/ef_gateway.sh .
+
+CMD /ef_gateway.sh
+

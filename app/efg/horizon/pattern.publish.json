@@ -1,0 +1,18 @@
+{
+    "label": "$SERVICE_NAME_EF_GATEWAY",
+    "description": "Pattern for $SERVICE_NAME_EF_GATEWAY providing EF Gateway",
+    "public": true,
+    "services": [
+	{
+	    "serviceUrl": "$MYDOMAIN.$MYAPPLICATION.$SERVICE_NAME_EF_GATEWAY",
+	    "serviceOrgid": "$HZN_ORG_ID",
+	    "serviceArch": "arm",
+	    "serviceVersions": [
+		{
+		    "version": "$SERVICE_VERSION_EF_GATEWAY"
+		}
+	    ]
+	}
+    ]
+}
+	     

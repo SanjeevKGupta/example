@@ -1,0 +1,30 @@
+{
+    "org": "$HZN_ORG_ID",
+    "label": "$SERVICE_NAME_I2C_OLED",
+    "description": "A RPi I2C OLED service",
+    "public": true,
+    "documentation": "",
+    "url": "$MYDOMAIN.$MYSERVICE.$SERVICE_NAME_I2C_OLED",
+    "version": "$SERVICE_VERSION_I2C_OLED",
+    "arch": "$ARCH",
+    "sharable": "singleton",
+    "requiredServices": [],
+    "userInput": [
+    ],
+    "deployment": {
+	"services": {
+	    "$SERVICE_NAME_I2C_OLED": {
+		"image": "$DOCKER_HUB_ID/${ARCH}_$SERVICE_NAME_I2C_OLED:$SERVICE_VERSION_I2C_OLED",
+		"privileged": true,
+		"devices": [
+		    "/dev/i2c-1:/dev/i2c-1"
+		]
+	    }
+	}
+    }
+}
+
+
+
+
+	

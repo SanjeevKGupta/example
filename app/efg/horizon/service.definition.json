@@ -1,0 +1,37 @@
+{
+    "org": "$HZN_ORG_ID",
+    "label": "$SERVICE_NAME_EF_GATEWAY",
+    "description": "Edge Fabric Gateway",
+    "public": true,
+    "documentation": "",
+    "url": "$MYDOMAIN.$MYAPPLICATION.$SERVICE_NAME_EF_GATEWAY",
+    "version": "$SERVICE_VERSION_EF_GATEWAY",
+    "arch": "$ARCH",
+    "sharable": "singleton",
+    "matchHardware": null,
+    "requiredServices": [
+        {
+            "url": "com.ibm.edge.example.svc.mqtt_kafka",
+            "org": "sanjeev@ibm.com",
+            "version": "0.0.1",
+            "arch": "arm"
+        },
+        {
+            "url": "com.ibm.edge.example.svc.i2c_oled",
+            "org": "sanjeev@ibm.com",
+            "version": "0.0.1",
+            "arch": "arm"
+        }
+    ],
+    "userInput": [],
+    "deployment": {
+        "services": {
+            "$SERVICE_NAME_EF_GATEWAY": {
+                "image": "$DOCKER_HUB_ID/${ARCH}_$SERVICE_NAME_EF_GATEWAY:$SERVICE_VERSION_EF_GATEWAY",
+                "privileged": false
+            }
+        }
+    },
+    "deploymentSignature": "",
+    "imageStore": null
+}

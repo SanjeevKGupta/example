@@ -1,0 +1,18 @@
+{
+    "label": "$SERVICE_NAME_I2C_OLED",
+    "description": "Pattern for $SERVICE_NAME_I2C_OLED showing information on OLED display",
+    "public": true,
+    "services": [
+	{
+	    "serviceUrl": "$MYDOMAIN.$MYSERVICE.$SERVICE_NAME_I2C_OLED",
+	    "serviceOrgid": "$HZN_ORG_ID",
+	    "serviceArch": "arm",
+	    "serviceVersions": [
+		{
+		    "version": "$SERVICE_VERSION_I2C_OLED"
+		}
+	    ]
+	}
+    ]
+}
+	     

@@ -1,0 +1,18 @@
+{
+    "label": "$SERVICE_NAME_MQTT_BROKER",
+    "description": "Pattern for $SERVICE_NAME_MQTT_BROKER providing MQTT broker",
+    "public": true,
+    "services": [
+	{
+	    "serviceUrl": "$MYDOMAIN.$MYSERVICE.$SERVICE_NAME_MQTT_BROKER",
+	    "serviceOrgid": "$HZN_ORG_ID",
+	    "serviceArch": "arm",
+	    "serviceVersions": [
+		{
+		    "version": "$SERVICE_VERSION_MQTT_BROKER"
+		}
+	    ]
+	}
+    ]
+}
+	     

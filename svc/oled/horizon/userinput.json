@@ -1,0 +1,10 @@
+{
+    "services": [
+        {
+	    "org": "$HZN_ORG_ID",
+	    "url": "$MYDOMAIN.$MYSERVICE.$SERVICE_NAME_I2C_OLED",
+	    "versionRange": "[0.0.0,INFINITY)",
+	    "variables": {}
+	}
+    ]
+}

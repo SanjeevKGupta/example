@@ -1,0 +1,56 @@
+{
+    "org": "$HZN_ORG_ID",
+    "label": "$SERVICE_NAME_MQTT_KAFKA",
+    "description": "A MQTT Kafka Event Streamer",
+    "public": true,
+    "documentation": "",
+    "url": "$MYDOMAIN.$MYSERVICE.$SERVICE_NAME_MQTT_KAFKA",
+    "version": "$SERVICE_VERSION_MQTT_KAFKA",
+    "arch": "$ARCH",
+    "sharable": "singleton",
+    "matchHardware": null,
+    "requiredServices": [
+    ],
+    "userInput": [
+        {
+            "name": "EVENT_STREAM_API_KEY",
+            "label": "event_stream_api_key",
+            "type": "string",
+            "defaultValue": ""
+        },
+        {
+            "name": "EVENT_STREAM_EFG_TOPIC",
+            "label": "event_stream_efg_topic",
+            "type": "string",
+            "defaultValue": ""
+        },
+        {
+            "name": "EVENT_STREAM_BROKER_URL",
+            "label": "event_stream_broker_url",
+            "type": "string",
+            "defaultValue": ""
+        },
+        {
+            "name": "MOCK",
+            "label": "mock",
+            "type": "boolean",
+            "defaultValue": "false"
+        },
+        {
+            "name": "PUBLISH",
+            "label": "publish",
+            "type": "boolean",
+            "defaultValue": "false"
+        }
+    ],
+    "deployment": {
+        "services": {
+            "$SERVICE_NAME_MQTT_KAFKA": {
+                "image": "$DOCKER_HUB_ID/${ARCH}_$SERVICE_NAME_MQTT_KAFKA:$SERVICE_VERSION_MQTT_KAFKA",
+                "privileged": false
+            }
+        }
+    },
+    "deploymentSignature": "",
+    "imageStore": null
+}

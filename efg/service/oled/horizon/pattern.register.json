@@ -2,9 +2,9 @@
     "services": [
         {
 	    "org": "$HZN_ORG_ID",
-	    "url": "$MYDOMAIN.$SERVICE_NAME_MQTT_KAFKA",
+	    "url": "$MYDOMAIN.$SERVICE_NAME_I2C_OLED",
 	    "versionRange": "[0.0.0,INFINITY)",
-	    "variables": { }
+	    "variables": {}
 	}
     ]
 }

@@ -8,8 +8,8 @@
                 "EVENT_STREAM_API_KEY": "$EVENT_STREAM_API_KEY",
                 "EVENT_STREAM_BROKER_URL": "$EVENT_STREAM_BROKER_URL",
                 "EVENT_STREAM_EFG_TOPIC": "$EVENT_STREAM_EFG_TOPIC",
-                "MOCK": true,
-                "PUBLISH": false
+                "MOCK": false,
+                "PUBLISH": true
             }
         }
     ]

@@ -1,6 +1,6 @@
 #All Service Environments. As services interact and use values from ENV VAR, define them at one place uniquely to avoid any clobbering 
 
-export SERVICE_VERSION_EF_GATEWAY=0.0.1
+export SERVICE_VERSION_EF_GATEWAY=0.0.2
 export SERVICE_NAME_EF_GATEWAY=ef_gateway
 
 export SERVICE_VERSION_MQTT_KAFKA=0.0.1

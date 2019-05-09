@@ -1,0 +1,16 @@
+FROM balenalib/rpi-raspbian
+RUN apt update
+RUN apt-get install -y python3-pip libglib2.0-dev
+RUN pip3 install bluepy
+
+WORKDIR /
+
+COPY src/blescan.py .
+COPY src/blesensor.py .
+
+CMD blesensor.py C4:BE:84:71:2D:8D -T -M -L
+
+#COPY src/blescan.py .
+#CMD /blescan.py
+
+

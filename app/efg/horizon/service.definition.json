@@ -13,7 +13,7 @@
         {
             "url": "com.ibm.edge.example.svc.mqtt_kafka",
             "org": "sanjeev@ibm.com",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "arch": "arm"
         },
         {

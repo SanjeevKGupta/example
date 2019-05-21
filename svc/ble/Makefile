@@ -1,5 +1,5 @@
 #
-# Makefile for MQTT Broker
+# Makefile for BLE
 #
 
 ARCH:= $(shell hzn node list | jq .configuration.architecture | sed 's/"//g')

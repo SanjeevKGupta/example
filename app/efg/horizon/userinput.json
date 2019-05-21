@@ -11,7 +11,7 @@
             "url": "com.ibm.edge.example.svc.mqtt_kafka",
             "versionRange": "[0.0.0,INFINITY)",
             "variables": {
-                "EVENT_STREAM_API_KEY": "QfonJaAb9NVQSMqDq4qQYaZXnPBhOd74h3GoNn2oJFI5wBTI",
+                "EVENT_STREAM_API_KEY": "***removed***",
                 "EVENT_STREAM_BROKER_URL": "kafka03-prod02.messagehub.services.us-south.bluemix.net:9093,kafka04-prod02.messagehub.services.us-south.bluemix.net:9093,kafka05-prod02.messagehub.services.us-south.bluemix.net:9093,kafka01-prod02.messagehub.services.us-south.bluemix.net:9093,kafka02-prod02.messagehub.services.us-south.bluemix.net:9093",
                 "EVENT_STREAM_EFG_TOPIC": "edgedock.com.ibm.edge.example.message",
                 "MOCK": true,

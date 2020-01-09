@@ -1,0 +1,33 @@
+{
+    "org": "$HZN_ORG_ID",
+    "label": "$SERVICE_NAME for $ARCH",
+    "description": "Provides a REST API to query the display",
+    "public": false,
+    "documentation": "",
+    "url": "$SERVICE_NAME",
+    "version": "$SERVICE_VERSION",
+    "arch": "$ARCH",
+    "sharable": "singleton",
+    "requiredServices": [],
+    "userInput": [
+	{
+	    "name": "TEMP_URL",
+	    "label": "Service providing temp data",
+	    "type": "string",
+	    "defaultValue": ""
+	}
+    ],
+    "deployment": {
+	"services": {
+	    "$SERVICE_NAME": {
+		"image": "${DOCKER_IMAGE_BASE}_$ARCH:$SERVICE_VERSION",
+		"ports": [
+		    {
+			"HostPort": "7777:7777/tcp",
+			"HostIP": "0.0.0.0"
+		    }
+		]
+	    }
+	}
+    }
+}

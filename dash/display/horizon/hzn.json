@@ -1,0 +1,8 @@
+{
+    "HZN_ORG_ID": "edge3211.slayer",
+    "MetadataVars": {
+	"DOCKER_IMAGE_BASE": "edgedock/dash.display",
+	"SERVICE_NAME": "dash.display",
+	"SERVICE_VERSION": "1.0.0"
+    }
+}

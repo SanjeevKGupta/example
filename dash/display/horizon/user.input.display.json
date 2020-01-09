@@ -1,0 +1,10 @@
+{
+    "services": [
+	{
+	    "url": "dash.display",
+	    "variables": {
+		"TEMP_URL": "http://192.168.200.152:8888/dash.temp"
+	    }
+	}
+    ]
+}

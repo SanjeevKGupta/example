@@ -1,6 +1,6 @@
 ## How to setup communicating containers on different edge devices
 
-In this example one container running on an edge device **A** reads the CPU temperature and makes it available over REST API. Another container running on another edge device **B** queries the temp service REST API and makes it availble via display service REST APi. Display service API can be similarly queried by yet another container/edge device or via CLI.
+In this example one container running on an edge device **A** reads the CPU temperature and makes it available over REST API. Another container running on another edge device **B** queries the temp service REST API and makes it availble via display service REST API. Display service API can be similarly queried by yet another container/edge device or via CLI.
 
 This example works on RaspberryPi and can be modified to work on other architectures.
 

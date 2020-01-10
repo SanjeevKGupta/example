@@ -7,7 +7,7 @@ This example works on RaspberryPi and can be modified to work on other architect
 ### Setup
 - You will require at least two RPis 
 - For this test, preferably configure the RPis with static IPs
-- Clone the code on one RPi
+- Clone the code on one RPi. Code under **dash** is applicable for this test. 
 - Make necessary changes in the services based on your HZN_ORG_ID and IP_ADDRESS of the devices
   - Modify value for HZN_ORG_ID in file hzn.json
   - Modify value for DOCKER_IMAGE_BASE in file hzn.json as per your docker repo.

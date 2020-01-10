@@ -14,8 +14,8 @@ This example works on RaspberryPi and can be modified to work on other architect
   - Modify value for TEMP_URL in the file display/horizon/user.input.display.json as per the IP_ADDRESS of the RPI running temp service
 - Build and publish the services using the Makefile for each service
 - Publish the patterns using the Makefile for each service
-- Register one RPi with patterrn-dash.temp
-- Register another RPi with patten-dash.display
+- Register one RPi with pattern-dash.temp
+- Register another RPi with pattern-dash.display
 
 ### Test from another device or a computer on same LAN
 

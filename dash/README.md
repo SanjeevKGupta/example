@@ -29,6 +29,6 @@ This example works on RaspberryPi and can be modified to work on other architect
   
     curl http://<IP_ADDRESS_OF_THE_SECOND_RPI>:7777/dash.display
   
-  You should see the CPU temperature value of the **first** RPI, while performing the query on the second RPI
+  You should see the CPU temperature value of the **first** RPI, while performing the query on the second RPI. (Behind the scene, dash.display connects to temp service running on first container and fetches data)  
 
 

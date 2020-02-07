@@ -1,0 +1,7 @@
+{
+    "MetadataVars": {
+        "DOCKER_IMAGE_BASE": "$(DOCKER_BASE)/hello_edge",
+        "SERVICE_NAME": "hello_edge",
+        "SERVICE_VERSION": "3.0.0"
+    }
+}

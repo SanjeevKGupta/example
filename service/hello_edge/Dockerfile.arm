@@ -1,0 +1,5 @@
+FROM arm32v6/alpine:latest
+
+WORKDIR /
+COPY src/hello_edge.sh .
+CMD /hello_edge.sh

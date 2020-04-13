@@ -1,10 +1,10 @@
 #
-# Makefile for MQTT Broker
+# Makefile for BLE
 #
 
-ifndef DOCKER_BASE
-$(error DOCKER_BASE is not set)
-endif
+# ----------------------------------------------------------------------------
+
+-include ../../env.check.mk
 
 # You must always use the Horizon name for architecture (`hzn architecture`)
 export ARCH ?= $(shell hzn architecture)
@@ -13,6 +13,8 @@ export ARCH ?= $(shell hzn architecture)
 -include .hzn.json.tmp.mk
 
 # ----------------------------------------------------------------------------
+
+#all: build push publish-service add-business-policy
 
 # Build the docker container
 build:
@@ -26,21 +28,15 @@ push:
 publish-service:
 	hzn exchange service publish -f horizon/service.json --pull-image
 
-# Publish a Horizon service (per service.json) and pull image to get its sha256
-publish-pattern-arm:
-	hzn exchange pattern publish -f horizon/pattern-arm.json
-
-publish-pattern-amd64:
-	hzn exchange pattern publish -f horizon/pattern-amd64.json
+add-business-policy:
+	hzn exchange business addpolicy -f horizon/biz_policy_$(IMAGE_NAME).json biz_$(IMAGE_NAME)_$(ARCH)_$(SERVICE_VERSION)_$(EDGE_DEPLOY)_$(EDGE_OWNER)
 
 # Remove the local container image
 clean:
-	@docker rmi $(DOCKER_IMAGE_BASE)_$(ARCH):$(SERVICE_VERSION) 2>/dev/null || :
-	@rm -f .hzn.json.tmp.mk
-
-
-# ----------------------------------------------------------------------------
+	-docker rmi $(DOCKER_IMAGE_BASE)_$(ARCH):$(SERVICE_VERSION) 2> /dev/null || :
+	rm -f .hzn.json.tmp.mk
 
 # This imports the variables from hzn.json
 .hzn.json.tmp.mk: horizon/hzn.json
 	@ hzn util configconv -f $< > $@
+

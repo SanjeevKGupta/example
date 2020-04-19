@@ -18,6 +18,10 @@ class Config:
     def getPublishPayloadKafkaUrl(self):
         return os.environ['HTTP_PUBLISH_KAFKA_URL']
 
+    def getMinConfidenceThreshold(self):
+        return float(os.environ['MIN_CONFIDENCE_THRESHOLD'])
+#        return 0.5
+
     def getResolution(self):
         return self.resolution
 
@@ -50,9 +54,6 @@ class Config:
 
     def getLabelmapPath(self):
         return os.path.join(self.getCwd(), self.getModelDir(), self.getLabelmap())
-
-    def getMinConfidenceThreshold(self):
-        return 0.5
 
     def getInputMean(self):
         return 127.5

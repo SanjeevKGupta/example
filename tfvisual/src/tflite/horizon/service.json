@@ -11,6 +11,7 @@
   ],
   "userInput": [
       { "name": "APP_NODE_NAME", "label": "Edge-Device-Node-Name", "type": "string", "defaultValue": "APP_NODE_NAME" },
+      { "name": "MIN_CONFIDENCE_THRESHOLD", "label": "min-confidence-threshold", "type": "float", "defaultValue": "0.5" },
       { "name": "HTTP_PUBLISH_KAFKA_URL", "label": "HTTP-HOST-KAFKA_URL", "type": "string", "defaultValue": "http://$EDGE_OWNER.$EDGE_DEPLOY.http:5000/publish/kafka" }
   ],
   "deployment": {

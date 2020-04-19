@@ -44,7 +44,7 @@ fn_register_with_policy() {
     fn_chk_env
 
     hzn exchange node create -n $HZN_EXCHANGE_NODE_AUTH
-    hzn register --policy=../policy/node_policy_app.json --input-file user-input-app.json
+    hzn register --policy=../policy/node_policy.json --input-file user-input-app.json
 }
 
 fn_unregister() {

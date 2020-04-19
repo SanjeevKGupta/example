@@ -20,7 +20,6 @@ class Config:
 
     def getMinConfidenceThreshold(self):
         return float(os.environ['MIN_CONFIDENCE_THRESHOLD'])
-#        return 0.5
 
     def getResolution(self):
         return self.resolution

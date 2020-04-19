@@ -1,0 +1,25 @@
+{
+  "org": "$HZN_ORG_ID",
+  "label": "$SERVICE_NAME for $ARCH",
+  "url": "$SERVICE_NAME",
+  "version": "$SERVICE_VERSION",
+  "arch": "$ARCH",
+  "public": true,
+  "sharable": "singleton",
+  "requiredServices": [
+      { "org": "$HZN_ORG_ID", "url": "$EDGE_OWNER.$EDGE_DEPLOY.http", "version": "1.0.0", "arch": "$ARCH" }
+  ],
+  "userInput": [
+      { "name": "APP_NODE_NAME", "label": "Edge-Device-Node-Name", "type": "string", "defaultValue": "APP_NODE_NAME" },
+      { "name": "HTTP_PUBLISH_KAFKA_URL", "label": "HTTP-HOST-KAFKA_URL", "type": "string", "defaultValue": "http://$EDGE_OWNER.$EDGE_DEPLOY.http:5000/publish/kafka" }
+  ],
+  "deployment": {
+    "services": {
+      "$SERVICE_NAME": {
+        "image": "${DOCKER_IMAGE_BASE}_$ARCH:$SERVICE_VERSION",
+        "privileged": true
+      }
+    }
+  }
+}
+

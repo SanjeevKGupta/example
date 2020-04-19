@@ -1,0 +1,11 @@
+{
+  "name": "pattern-$EDGE_OWNER.$EDGE_DEPLOY.tflite-$ARCH",
+  "services": [
+    {
+      "serviceUrl": "$EDGE_OWNER.$EDGE_DEPLOY.tflite",
+      "serviceOrgid": "$HZN_ORG_ID",
+      "serviceArch": "$ARCH",
+      "serviceVersions": [ { "version": "1.0.0" } ]
+    }
+  ]
+}

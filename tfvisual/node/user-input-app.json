@@ -1,0 +1,22 @@
+{
+    "services": [
+    {
+	"org": "$HZN_ORG_ID",
+	"url": "$EDGE_OWNER.$EDGE_DEPLOY.http",
+	"versionRange": "[0.0.0,INFINITY)",
+	"variables": {
+            "EVENTSTREAMS_BROKER_URLS"    : "$EVENTSTREAMS_BROKER_URLS",
+            "EVENTSTREAMS_API_KEY"        : "$EVENTSTREAMS_API_KEY",
+            "EVENTSTREAMS_ENHANCED_TOPIC" : "$EVENTSTREAMS_ENHANCED_TOPIC"
+	}
+    },
+    {
+	"org": "$HZN_ORG_ID",
+	"url": "$EDGE_OWNER.$EDGE_DEPLOY.tflite",
+	"versionRange": "[0.0.0,INFINITY)",
+	"variables": {
+            "APP_NODE_NAME"    : "$APP_NODE_NAME"
+	}
+    }
+  ]
+}

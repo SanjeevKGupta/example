@@ -170,25 +170,27 @@ class Opencv:
 
         return frame_current, frame_norm
 
-    def updateFrame(self, config, detector, opencv, frame_copy, boxes, classes, scores, num):
+    def updateFrame(self, config, detector, opencv, frame_current, boxes, classes, scores, num):
         entities_dict = {}
         for i in range(len(scores)):
             if ((scores[i] > config.getMinConfidenceThreshold()) and (scores[i] <= 1.0)):
                 
+                imageH, imageW, _ = frame_current.shape
+
                 # Get bounding box coordinates and draw box
-                ymin = int(max(1, (boxes[i][0] * detector.getHeight())))
-                xmin = int(max(1, (boxes[i][1] * detector.getWidth())))
-                ymax = int(min(detector.getHeight(), (boxes[i][2] * detector.getHeight())))
-                xmax = int(min(detector.getWidth(), (boxes[i][3] * detector.getWidth())))
-                cv2.rectangle(frame_copy, (xmin, ymin), (xmax, ymax), (10, 255, 0), 2)
+                ymin = int(max(1, (boxes[i][0] * imageH)))
+                xmin = int(max(1, (boxes[i][1] * imageW )))
+                ymax = int(min(imageH, (boxes[i][2] * imageH)))
+                xmax = int(min(imageW, (boxes[i][3] * imageW)))
+                cv2.rectangle(frame_current, (xmin, ymin), (xmax, ymax), (10, 255, 0), 2)
 
                 # Draw label
                 object_name = detector.getLabels()[int(classes[i])]
                 label = '%s: %d%%' % (object_name,  int(scores[i] * 100))
                 labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 2)
                 label_ymin = max(ymin, labelSize[1] + 8)
-                cv2.rectangle(frame_copy, (xmin, label_ymin - labelSize[1] - 10), (xmin + labelSize[0], label_ymin + baseLine - 10), (255, 255, 255), cv2.FILLED)
-                cv2.putText(frame_copy, label, (xmin, label_ymin-7), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 2)
+                cv2.rectangle(frame_current, (xmin, label_ymin - labelSize[1] - 10), (xmin + labelSize[0], label_ymin + baseLine - 10), (255, 255, 255), cv2.FILLED)
+                cv2.putText(frame_current, label, (xmin, label_ymin-7), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 2)
             
                 details = []
                 if object_name in entities_dict:
@@ -206,7 +208,7 @@ class Opencv:
                 detail_dict['confidence'] = float('{0:.2f}'.format(scores[i]))
                 details.append(detail_dict)
 
-        cv2.putText(frame_copy, 'FPS:{0:.2f}'.format(opencv.getFrameRate()), (30,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,0), 2,cv2.LINE_AA)
+        cv2.putText(frame_current, 'FPS:{0:.2f}'.format(opencv.getFrameRate()), (30,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,0), 2,cv2.LINE_AA)
 
         return entities_dict 
         

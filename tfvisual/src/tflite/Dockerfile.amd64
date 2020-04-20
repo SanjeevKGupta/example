@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.7-slim
 
 RUN apt-get update && apt-get --no-install-recommends -y install \
     libjpeg-dev \
@@ -15,9 +15,12 @@ RUN apt-get update && apt-get --no-install-recommends -y install \
     wget 
 
 #RUN apt-get install -y python3-pip
-#RUN pip3 install opencv-python==3.4.8.29
 # 4.2.0.32 required for videocapture(0) to work
-RUN pip3 install opencv-python==4.2.0.32 tensorflow
+RUN pip3 install requests opencv-python==4.2.0.32
+
+#Using just the tensorflow lite runtime instead of whole tensorflow install. (Image size reduction)  
+#RUN pip3 install tensorflow
+RUN pip3 install https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp37-cp37m-linux_x86_64.whl
 
 RUN rm -rf /var/lib/apt/lists/*
 
@@ -35,11 +38,4 @@ COPY service/package/*.py package/
 WORKDIR /
 CMD /usr/local/bin/python3 tflite_webcam_image.py
 
-### test using a single static image with CMD in docker shell
-# Opencv-python==4.2.0.32 is able to process the test image and detect the classes. Also volume mount makes the annotated picture available outside
-#docker run -it -v "$PWD":/app edgedock/sg.edge.example.tfvisual.tflite_amd64:1.0.0 /bin/bash
-#WORKDIR /
-#COPY service/tflite_image_single_test.py .
-#COPY service/test-car-person.jpg .
-#CMD /usr/local/bin/python3 tflite_image_single_test.py
 

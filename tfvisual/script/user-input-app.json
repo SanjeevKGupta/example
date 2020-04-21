@@ -15,7 +15,8 @@
 	"url": "$EDGE_OWNER.$EDGE_DEPLOY.tflite",
 	"versionRange": "[0.0.0,INFINITY)",
 	"variables": {
-            "APP_NODE_NAME"    : "$APP_NODE_NAME",
+            "DEVICE_ID"                : "$DEVICE_ID",
+            "DEVICE_NAME"              : "$DEVICE_NAME",
 	    "MIN_CONFIDENCE_THRESHOLD" : 0.6
 	}
     }

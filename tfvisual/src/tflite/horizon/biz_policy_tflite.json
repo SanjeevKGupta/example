@@ -25,7 +25,8 @@
 	    "serviceUrl": "$EDGE_OWNER.$EDGE_DEPLOY.tflite",
 	    "serviceVersionRange": "[0.0.0,INFINITY)",
 	    "inputs": [
-		{ "name" : "APP_NODE_NAME", "value" : "APP_NODE_NAME"  }
+		{ "name" : "DEVICE_ID", "value" : "DEVICE_ID"  },
+		{ "name" : "DEVICE_NAME", "value" : "DEVICE_NAME"  }
 	    ]
 	}
     ]

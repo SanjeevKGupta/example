@@ -13,7 +13,10 @@ class Config:
         self.framerate = framerate
 
     def getDeviceId(self):
-        return os.environ['APP_NODE_NAME']
+        return os.environ['DEVICE_ID']
+    
+    def getDeviceName(self):
+        return os.environ['DEVICE_NAME']
     
     def getPublishPayloadKafkaUrl(self):
         return os.environ['HTTP_PUBLISH_KAFKA_URL']
@@ -34,7 +37,7 @@ class Config:
         return self.resolution[1]
 
     def getTool(self):
-        return "opencv-tflite"
+        return "OpenCV TensorFlow Lite"
 
     def getModelDir(self):
         return "model"
@@ -74,6 +77,7 @@ class Detector:
         if self.labels[0] == '???':
             del(self.labels[0])
 
+        self.inference_interval = 0
         self.interpreter = Interpreter(model_path=config.getModelPath())
         self.interpreter.allocate_tensors()
 
@@ -84,7 +88,11 @@ class Detector:
         t1 = time.time()
         self.interpreter.set_tensor(self.getInputDetailsIndex(), frame_normalized)
         self.interpreter.invoke()
-        return time.time() - t1
+        self.inference_interval = time.time() - t1
+        return self.inference_interval
+
+    def getInferenceInterval(self):
+        return self.inference_interval
 
     def getInputDetailsIndex(self):
         return self.getInputDetails()[0]['index']
@@ -128,6 +136,7 @@ class Detector:
         # Create inference payload
         inference_dict = {}
         inference_dict['deviceid'] = config.getDeviceId()
+        inference_dict['devicename'] = config.getDeviceName()
         inference_dict['tool'] = config.getTool()
         inference_dict['date'] = int(time.time())
         inference_dict['camtime'] = 0
@@ -208,7 +217,16 @@ class Opencv:
                 detail_dict['confidence'] = float('{0:.2f}'.format(scores[i]))
                 details.append(detail_dict)
 
-        cv2.putText(frame_current, 'FPS:{0:.2f}'.format(opencv.getFrameRate()), (30,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,0), 2,cv2.LINE_AA)
+        # Color BGR
+        overlay = frame_current.copy()
+        cv2.rectangle(overlay, (15, 10), (250, 110), (64, 64, 64), -1)
+        alpha = 0.7
+        cv2.addWeighted(overlay, alpha, frame_current, 1 - alpha, 0, frame_current)
+
+        cv2.putText(frame_current, '{tool}'.format(tool = config.getTool()), (30, 30), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 2, cv2.LINE_AA)
+        cv2.putText(frame_current, '{device_name}'.format(device_name = config.getDeviceName()), (30, 60), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 1, cv2.LINE_AA)
+        cv2.putText(frame_current, 'Detection Time {0:.2f} sec'.format(detector.getInferenceInterval()), (30, 80), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 1, cv2.LINE_AA)
+        cv2.putText(frame_current, 'Overall FPS {0:.2f}'.format(opencv.getFrameRate()), (30, 100), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 1, cv2.LINE_AA)
 
         return entities_dict 
         

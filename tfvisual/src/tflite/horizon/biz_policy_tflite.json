@@ -1,0 +1,32 @@
+{
+    "label": "biz-policy-tflite-$ARCH",
+    "description": "A biz policy for tflite on $ARCH",
+    "service": {
+	"name": "$EDGE_OWNER.$EDGE_DEPLOY.tflite",
+	"org": "$HZN_ORG_ID",
+	"arch": "$ARCH",
+	"serviceVersions": [
+	    {
+		"version": "1.0.0",
+		"priority":{}
+	    }
+	]
+    },
+    "properties": [
+    ],
+    "constraints": [
+	"owner == $EDGE_OWNER",
+	"deploy == $EDGE_DEPLOY",
+	"tflite == 1.0.0"
+    ],
+    "userInput": [
+	{
+	    "serviceOrgid": "$HZN_ORG_ID",
+	    "serviceUrl": "$EDGE_OWNER.$EDGE_DEPLOY.tflite",
+	    "serviceVersionRange": "[0.0.0,INFINITY)",
+	    "inputs": [
+		{ "name" : "APP_NODE_NAME", "value" : "APP_NODE_NAME"  }
+	    ]
+	}
+    ]
+}

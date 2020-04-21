@@ -17,6 +17,7 @@
 	"variables": {
             "DEVICE_ID"                : "$DEVICE_ID",
             "DEVICE_NAME"              : "$DEVICE_NAME",
+	    "SHOW_OVERLAY"             : $SHOW_OVERLAY,
 	    "MIN_CONFIDENCE_THRESHOLD" : 0.6
 	}
     }

@@ -24,6 +24,9 @@ class Config:
     def getMinConfidenceThreshold(self):
         return float(os.environ['MIN_CONFIDENCE_THRESHOLD'])
 
+    def shouldShowOverlay(self):
+        return os.environ['SHOW_OVERLAY'] == 'true'
+
     def getResolution(self):
         return self.resolution
 
@@ -218,15 +221,16 @@ class Opencv:
                 details.append(detail_dict)
 
         # Color BGR
-        overlay = frame_current.copy()
-        cv2.rectangle(overlay, (15, 10), (250, 110), (64, 64, 64), -1)
-        alpha = 0.7
-        cv2.addWeighted(overlay, alpha, frame_current, 1 - alpha, 0, frame_current)
+        if config.shouldShowOverlay():
+            overlay = frame_current.copy()
+            cv2.rectangle(overlay, (15, 10), (250, 110), (64, 64, 64), -1)
+            alpha = 0.7
+            cv2.addWeighted(overlay, alpha, frame_current, 1 - alpha, 0, frame_current)
 
-        cv2.putText(frame_current, '{tool}'.format(tool = config.getTool()), (30, 30), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 2, cv2.LINE_AA)
-        cv2.putText(frame_current, '{device_name}'.format(device_name = config.getDeviceName()), (30, 60), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 1, cv2.LINE_AA)
-        cv2.putText(frame_current, 'Detection Time {0:.2f} sec'.format(detector.getInferenceInterval()), (30, 80), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 1, cv2.LINE_AA)
-        cv2.putText(frame_current, 'Overall FPS {0:.2f}'.format(opencv.getFrameRate()), (30, 100), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 1, cv2.LINE_AA)
+            cv2.putText(frame_current, '{tool}'.format(tool = config.getTool()), (30, 30), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 2, cv2.LINE_AA)
+            cv2.putText(frame_current, '{device_name}'.format(device_name = config.getDeviceName()), (30, 60), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 1, cv2.LINE_AA)
+            cv2.putText(frame_current, 'Detection Time {0:.2f} sec'.format(detector.getInferenceInterval()), (30, 80), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 1, cv2.LINE_AA)
+            cv2.putText(frame_current, 'Overall FPS {0:.2f}'.format(opencv.getFrameRate()), (30, 100), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 1, cv2.LINE_AA)
 
         return entities_dict 
         

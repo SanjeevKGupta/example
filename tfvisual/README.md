@@ -2,7 +2,7 @@
 
 A python based implementation using two containers with detection time below < 0.5 sec without any GPU accelerator on Intel NUC.  
 
-- Image capture and classfication
+- Image capture and classification
 - Http and kafka message bridge
 
 ## Build, publish and use of IEAM system in a shared environment

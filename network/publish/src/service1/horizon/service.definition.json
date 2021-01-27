@@ -1,0 +1,27 @@
+{
+    "org": "$HZN_ORG_ID",
+    "label": "$SERVICE_NAME-$ARCH",
+    "description": "Provides a REST API to query service",
+    "url": "$SERVICE_NAME",
+    "version": "$SERVICE_VERSION",
+    "arch": "$ARCH",
+    "public": true,
+    "sharable": "multiple",
+    "requiredServices": [ 
+    ],
+    "userInput": [
+    ],
+    "deployment": {
+	"services": {
+	    "$SERVICE_NAME": {
+		"image": "${DOCKER_IMAGE_BASE}_$ARCH:$SERVICE_VERSION",
+		"ports": [
+		    {
+			"HostPort":"8881:8881/tcp",
+			"HostIP":"0.0.0.0"
+		    }
+		]
+	    }
+	}
+    }
+}

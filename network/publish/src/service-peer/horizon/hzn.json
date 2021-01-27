@@ -1,0 +1,9 @@
+{
+    "MetadataVars": {
+	"IMAGE_PART": "$(EDGE_OWNER).$(EDGE_DEPLOY)",
+	"DOCKER_IMAGE_PART": "$(DOCKER_BASE)/$(EDGE_OWNER).$(EDGE_DEPLOY)",
+	"SERVICE_NAME": "$(EDGE_OWNER).$(EDGE_DEPLOY).service-peer",
+	"SERVICE_VERSION": "1.0.0"
+    }
+}
+

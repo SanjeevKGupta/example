@@ -11,7 +11,7 @@ Test if the service is running by executing following command.
 curl http://localhost:8881
 ```
 
-Should see output similar to following 
+Should see output similar to this
 ```
 {"hostname":"<container-id>","service":"Service One"}
 ```

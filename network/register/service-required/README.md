@@ -1,6 +1,8 @@
 
 In this example Service 2 is specifid as `required service` for service 1 . Hence Service 1 will be able to access Service 2 but not other way around. 
 
+hzn register -p "dev/pattern-sg.edge.example.network.service-required"
+
 
 Verify services are running as before
 ```

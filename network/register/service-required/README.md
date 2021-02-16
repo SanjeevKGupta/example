@@ -10,7 +10,7 @@ curl http://localhost:8881
 curl http://localhost:8882
 {"hostname":"7b68daf407d7","service":"Service Two"}
 ```
-
+#### View currently running containers
 ```
 docker ps
 CONTAINER ID        IMAGE                                             COMMAND                CREATED             STATUS              PORTS                    NAMES
@@ -19,31 +19,48 @@ afc58ca12c5f        edgedock/sg.edge.example.network.service1_amd64   "/bin/sh -
 ```
 
 ### Service 1 can access service 2 using service url alias
-
-docker exec -it afc58ca12c5f /bin/sh
+```
+docker exec -it <container-id>  /bin/sh
+````
 #### Accessing itself
+```
 / # curl http://localhost:8881
 {"hostname":"afc58ca12c5f","service":"Service One"}
-
+```
 #### Trying to access other service
+```
 / # curl http://localhost:8882
 curl: (7) Failed to connect to localhost port 8882: Connection refused
-
+```
 #### But can access using service alias from service One
+```
 / # curl http://sg.edge.example.network.service2:8882
 {"hostname":"7b68daf407d7","service":"Service Two"}
 / # exit
-
+```
 
 ### Service 2 can NOT access service 1 using service url alias either
-docker exec -it 7b68daf407d7 /bin/sh
+```
+docker exec -it <container-id> /bin/sh
+```
 #### Trying to access other service
+```
 / # curl http://localhost:8881
 curl: (7) Failed to connect to localhost port 8881: Connection refused
+```
 #### Accessing itself
+```
 / # curl http://localhost:8882
 {"hostname":"7b68daf407d7","service":"Service Two"}
+```
 #### But access using service alias fails as well
+```
 / # curl http://sg.edge.example.network.service1:8881
 curl: (6) Could not resolve host: sg.edge.example.network.service1
 / # exit
+```
+
+#### Unregister the edge node
+```
+hzn unregister -vrfD
+```

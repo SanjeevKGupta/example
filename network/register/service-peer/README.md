@@ -34,28 +34,62 @@ de2028114faf        edgedock/sg.edge.example.network.service2_amd64   "/bin/sh -
 ```
 #### Exec into first container and run. Other container is accessible using service alias
 ```
+docker exec -it <container-id> /bin/sh
+```
+
+##### Accessing itself
+```
 / # curl http://localhost:8881
 {"hostname":"cac88488c023","service":"Service One"}
+```
+##### Accessing other container (will fail)
+```
 / # curl http://localhost:8882
 curl: (7) Failed to connect to localhost port 8882: Connection refused
-
+```
+##### Accessing itself by service-name alias
+```
 / # curl http://sg.edge.example.network.service1:8881
 {"hostname":"cac88488c023","service":"Service One"}
+```
+
+##### Accessing other container by service-name alias
+```
 / # curl http://sg.edge.example.network.service2:8882
 {"hostname":"de2028114faf","service":"Service Two"}
+```
+```
 / # exit
 ```
+
 #### Exec into second container and run. Other container is accessible using service alias
+```
+docker exec -it <container-id> /bin/sh
+```
+##### Accessing itself
+```
+/ # curl http://localhost:8882
+{"hostname":"de2028114faf","service":"Service Two"}
+```
+##### Accessing other container (will fail)
 ```
 / # curl http://localhost:8881
 curl: (7) Failed to connect to localhost port 8881: Connection refused
-/ # curl http://localhost:8882
-{"hostname":"de2028114faf","service":"Service Two"}
+```
 
-/ # curl http://sg.edge.example.network.service1:8881
-{"hostname":"cac88488c023","service":"Service One"}
+##### Accessing itself by service-name alias
+```
 / # curl http://sg.edge.example.network.service2:8882
 {"hostname":"de2028114faf","service":"Service Two"}
+```
+
+##### Accessing other container by service-name alias
+```
+/ # curl http://sg.edge.example.network.service1:8881
+{"hostname":"cac88488c023","service":"Service One"}
+```
+
+```
 / # exit
 
 ```

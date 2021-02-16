@@ -1,7 +1,6 @@
-#### Register the edge device node using pattern
-In this deployment configuration mutiple services are deployed together as part of one service. Though they can be accessed indepedently but services themshelves can `NOT` access each other.
+### Register the edge device node
+In this example configuration multiple services are deployed together as part of one service. Though the services can be accessed independently but services themshelves can `NOT` access each other.
 
-This pattern will deploy two services using pattern service-peer
 ```
 hzn register -p "dev/pattern-sg.edge.example.network.service-peer"
 ```
@@ -23,12 +22,15 @@ curl http://localhost:8882
 ```
 Output
 ```
-{"hostname":"c7ebed158ad5","service":"Service Two"}
+{"hostname":"<container-id>","service":"Service Two"}
 ```
 
-#### View currently runninf containers
+#### View currently running containers
 ```
 docker ps
+CONTAINER ID        IMAGE                                             COMMAND                CREATED             STATUS              PORTS                    NAMES
+3540b67a29a8        edgedock/sg.edge.example.network.service1_amd64   "/bin/sh -c /one.sh"   6 minutes ago       Up 6 minutes        0.0.0.0:8881->8881/tcp   ae0128e582cb5475d613577b4dec9e22a17fb524a328ad8ea4473f33822115f1-sg.edge.example.network.service1
+c7ebed158ad5        edgedock/sg.edge.example.network.service2_amd64   "/bin/sh -c /two.sh"   6 minutes ago       Up 6 minutes        0.0.0.0:8882->8882/tcp   ae0128e582cb5475d613577b4dec9e22a17fb524a328ad8ea4473f33822115f1-sg.edge.example.network.service2
 ```
 #### Exec into first container and run. Other container is not accessible
 ```

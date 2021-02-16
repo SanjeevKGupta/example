@@ -1,12 +1,12 @@
 ### Service 1
 
-#### Register
+#### Register the edge device node using pattern 
 ```
 hzn register -p "dev/pattern-sg.edge.example.network.service1"
 ```
 
 #### Test
-Test if the service is running. Run following command. 
+Test if the service is running by executing following command. 
 ```
 curl http://localhost:8881
 ```

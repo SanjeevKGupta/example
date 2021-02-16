@@ -51,5 +51,10 @@ curl: (7) Failed to connect to localhost port 8881: Connection refused
 / # exit
 ```
 
+#### Unregister the edge node
+```
+hzn unregister -vrfD
+```
+
 
 

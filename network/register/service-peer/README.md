@@ -1,5 +1,5 @@
 ### Register the edge device node
-In this example configuration multiple services are deployed together as part of one service. Though the services can be accessed independently but services themshelves can `NOT` access each other.
+In this example configuration multiple services are deployed together as part of one service. Services can access each other by service aliases.
 
 ```
 hzn register -p "dev/pattern-sg.edge.example.network.service-peer"
@@ -29,26 +29,35 @@ Output
 ```
 docker ps
 CONTAINER ID        IMAGE                                             COMMAND                CREATED             STATUS              PORTS                    NAMES
-3540b67a29a8        edgedock/sg.edge.example.network.service1_amd64   "/bin/sh -c /one.sh"   6 minutes ago       Up 6 minutes        0.0.0.0:8881->8881/tcp   ae0128e582cb5475d613577b4dec9e22a17fb524a328ad8ea4473f33822115f1-sg.edge.example.network.service1
-c7ebed158ad5        edgedock/sg.edge.example.network.service2_amd64   "/bin/sh -c /two.sh"   6 minutes ago       Up 6 minutes        0.0.0.0:8882->8882/tcp   ae0128e582cb5475d613577b4dec9e22a17fb524a328ad8ea4473f33822115f1-sg.edge.example.network.service2
+cac88488c023        edgedock/sg.edge.example.network.service1_amd64   "/bin/sh -c /one.sh"   19 seconds ago      Up 18 seconds       0.0.0.0:8881->8881/tcp   632ab4417256a640dcc2e73a075ada4efb4b8cb0c2bfc56f83774d32c73239b2-sg.edge.example.network.service1
+de2028114faf        edgedock/sg.edge.example.network.service2_amd64   "/bin/sh -c /two.sh"   19 seconds ago      Up 18 seconds       0.0.0.0:8882->8882/tcp   632ab4417256a640dcc2e73a075ada4efb4b8cb0c2bfc56f83774d32c73239b2-sg.edge.example.network.service2
 ```
-#### Exec into first container and run. Other container is not accessible
+#### Exec into first container and run. Other container is accessible using service alias
 ```
-docker exec -it 3540b67a29a8 /bin/sh
 / # curl http://localhost:8881
-{"hostname":"3540b67a29a8","service":"Service One"}
+{"hostname":"cac88488c023","service":"Service One"}
 / # curl http://localhost:8882
 curl: (7) Failed to connect to localhost port 8882: Connection refused
+
+/ # curl http://sg.edge.example.network.service1:8881
+{"hostname":"cac88488c023","service":"Service One"}
+/ # curl http://sg.edge.example.network.service2:8882
+{"hostname":"de2028114faf","service":"Service Two"}
 / # exit
 ```
-#### Exec into second container and run. Other container is not accessible
+#### Exec into second container and run. Other container is accessible using service alias
 ```
-docker exec -it c7ebed158ad5 /bin/sh
 / # curl http://localhost:8881
 curl: (7) Failed to connect to localhost port 8881: Connection refused
 / # curl http://localhost:8882
-{"hostname":"c7ebed158ad5","service":"Service Two"}
+{"hostname":"de2028114faf","service":"Service Two"}
+
+/ # curl http://sg.edge.example.network.service1:8881
+{"hostname":"cac88488c023","service":"Service One"}
+/ # curl http://sg.edge.example.network.service2:8882
+{"hostname":"de2028114faf","service":"Service Two"}
 / # exit
+
 ```
 
 #### Unregister the edge node

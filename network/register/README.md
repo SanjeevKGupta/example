@@ -16,3 +16,8 @@ Should see output similar to this
 {"hostname":"<container-id>","service":"Service One"}
 ```
 
+#### Unregister the edge node
+```
+hzn unregister -vrfD
+```
+

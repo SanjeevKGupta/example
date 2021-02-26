@@ -30,6 +30,9 @@ Output
 #### View currently running containers
 ```
 docker ps
+```
+Output
+```
 CONTAINER ID        IMAGE                                             COMMAND                CREATED             STATUS              PORTS                    NAMES
 cac88488c023        edgedock/sg.edge.example.network.service1_amd64   "/bin/sh -c /one.sh"   19 seconds ago      Up 18 seconds       0.0.0.0:8881->8881/tcp   632ab4417256a640dcc2e73a075ada4efb4b8cb0c2bfc56f83774d32c73239b2-sg.edge.example.network.service1
 de2028114faf        edgedock/sg.edge.example.network.service2_amd64   "/bin/sh -c /two.sh"   19 seconds ago      Up 18 seconds       0.0.0.0:8882->8882/tcp   632ab4417256a640dcc2e73a075ada4efb4b8cb0c2bfc56f83774d32c73239b2-sg.edge.example.network.service2

@@ -1,4 +1,5 @@
-### Register the edge device node
+### IEAM network as peer services
+
 In this example multiple services are deployed together as part of one service. Services can access each other by their service aliases.
 
 ```

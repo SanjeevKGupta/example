@@ -20,12 +20,6 @@ Should see output similar to this
 ```
 hzn unregister -vrfD
 ```
-<head>
-<style>
-table {
-    width:100%;
-}
-</style>
-</head>
-|[Service 1](https://github.com/edgedock/example/tree/master/network/register/01-service1) | [Service 2](https://github.com/edgedock/example/tree/master/network/register/02-service2) |
-|:--|--:|
+<table style="width=100%">
+    <th>1</th><th>2</th><th>3</th>
+</table>

@@ -50,9 +50,5 @@ Service 1 and 2 can access each other using host network host. External user can
                   |           |    |           |
                   | Service 1 |    | Service 2 |
                   |___________|    |___________|
-             
-             
-
-
-
-
+  
+```

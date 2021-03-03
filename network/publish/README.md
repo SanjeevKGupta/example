@@ -1,4 +1,4 @@
-## Service Network in IEAM
+## Service Networks in IEAM
 
 ### Publish example services
 

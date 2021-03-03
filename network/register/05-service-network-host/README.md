@@ -7,6 +7,7 @@ In this example multiple services are deployed together as part of one service. 
 hzn register -p "dev/pattern-sg.edge.example.network.service-network-host" --policy=node-policy-privileged.json
 ```
 #### Verify that the service 1 and 2 are running as before
+Service 1
 ```
 curl http://localhost:8881
 ```
@@ -14,6 +15,7 @@ curl http://localhost:8881
 ```
 {"hostname":"<host-name>","service":"Service One"}
 ```
+Service 2
 ```
 curl http://localhost:8882
 ```

@@ -97,5 +97,7 @@ curl: (7) Failed to connect to localhost port 8881: Connection refused
 hzn unregister -vrfD
 ```
 
+|[Service 2](https://github.com/edgedock/example/tree/master/network/register/02-service2) | **Service Peer** | [Service Required](https://github.com/edgedock/example/tree/master/network/register/04-service-required)  |
+|:--|:-:|--:|
 
 

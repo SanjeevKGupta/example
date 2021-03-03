@@ -84,6 +84,7 @@ curl: (6) Could not resolve host: sg.edge.example.network.service1
 curl: (6) Could not resolve host: sg.edge.example.network.service2
 / # exit
 ```
-
+#### Unregister the edge device node
+```
 hzn unregister -vrfD
-
+```

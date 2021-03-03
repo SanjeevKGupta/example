@@ -1,4 +1,4 @@
-## IEAM network using `host network`
+## Network configuration using `host network`
 
 In this example multiple services are deployed together as part of one service. Services can access each other by the localhost network and not by service-name alias. Using host network does not create service-name alias. This mode requires privileged access.
 

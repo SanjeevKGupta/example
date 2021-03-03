@@ -22,5 +22,5 @@ hzn unregister -vrfD
 ```
 
 |[Register](https://github.com/edgedock/example/tree/master/network/register) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Service 1 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Service 2](https://github.com/edgedock/example/tree/master/network/register/02-service2) |
-|:--|--:|
+|:--|:-:|--:|
 

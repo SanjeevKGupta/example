@@ -1,4 +1,4 @@
-## IEAM network as `peer services`
+## Network configuration as `peer services`
 
 In this example multiple services are configured together as part of one service. Services can access each other by their service name aliases.
 

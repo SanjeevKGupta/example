@@ -7,6 +7,6 @@
 - See register secton to `register` an edge device node with a pattern and study the network behavior. 
 
 
-### Next step
+### Next
 
 [Register and review various network options](https://github.com/edgedock/example/tree/master/network/register)

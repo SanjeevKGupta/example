@@ -1,5 +1,4 @@
-|[Register](https://github.com/edgedock/example/tree/master/network/register)  | **Service 1** | [Service 2](https://github.com/edgedock/example/tree/master/network/register/02-service2)  |
-|:--|:-:|--:|
+### Service 1
 
 First example service to be used in peer, required and network configurations.
 
@@ -23,5 +22,6 @@ Should see output similar to this
 hzn unregister -vrfD
 ```
 
-
+|[Register](https://github.com/edgedock/example/tree/master/network/register)  | **Service 1** | [Service 2](https://github.com/edgedock/example/tree/master/network/register/02-service2)  |
+|:--|:-:|--:|
 

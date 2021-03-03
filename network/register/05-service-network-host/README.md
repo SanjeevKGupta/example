@@ -91,3 +91,6 @@ curl: (6) Could not resolve host: sg.edge.example.network.service2
 ```
 hzn unregister -vrfD
 ```
+
+|[Service Required](https://github.com/edgedock/example/tree/master/network/register/05-service-required) | **Service Network Host** | [Register](https://github.com/edgedock/example/tree/master/network/registert)  |
+|:--|:-:|--:|

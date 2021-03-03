@@ -20,6 +20,7 @@ Should see output similar to this
 ```
 hzn unregister -vrfD
 ```
-
+<div>
 <div style="text-align: left"> [Next](https://github.com/edgedock/example/tree/master/network/register/01-service1) </div>
 <div style="text-align: right"> [Next](https://github.com/edgedock/example/tree/master/network/register/02-service2) </div>
+</div>

@@ -22,3 +22,6 @@ Should see output similar to this
 ```
 hzn unregister -vrfD
 ```
+
+|[Service 1](https://github.com/edgedock/example/tree/master/network/register/01-service1) | **Service 2** | [Service Peer](https://github.com/edgedock/example/tree/master/network/register/03-service-peer)  |
+|:--|:-:|--:|

@@ -1,4 +1,5 @@
 ### Service 1
+First example service to be used in peer, required and network configurations.
 
 #### Register the edge device node using pattern 
 ```

@@ -1,4 +1,4 @@
-## Service Networks in IEAM
+## Application Service Network Examples
 
 These examples show how two (or more) services can be configured differently to meet various different application requirements. 
 

@@ -12,10 +12,10 @@ Two services are configured such that they are peer to each other and can access
 ```
 Service 1 and Service 2 can access each other.
 
-                 _____________         _____________   
-                 |           |         |           |
-                 | Service 1 | <---->  | Service 2 |
-                 |___________|         |___________|
+                 _____________          _____________   
+                 |           |          |           |
+                 | Service 1 |  <---->  | Service 2 |
+                 |___________|          |___________|
 ```                    
 
 ### 4. Required services (service-required)

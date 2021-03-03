@@ -14,7 +14,7 @@ $(error DOCKER_BASE is not set. export DOCKER_BASE=<your-docker-account-base> )
 endif
 
 ifndef HZN_ORG_ID
-$(error HZN_ORG_ID is not set. export HZN_ORG_ID=mycluster))
+$(error HZN_ORG_ID is not set. export HZN_ORG_ID=<your-org-id>))
 endif
 
 ifndef HZN_EXCHANGE_USER_AUTH

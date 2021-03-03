@@ -6,9 +6,9 @@
 
 #### Service 2
 
-#### Service-required
-
 #### Service-peer
+
+#### Service-required
 
 #### Service-network-host
 

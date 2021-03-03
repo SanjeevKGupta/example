@@ -1,4 +1,4 @@
-## Service Networks in IEAM
+## Application Service Network Examples
 
 [See `src` for various service network options implementation detail](https://github.com/edgedock/example/tree/master/network/publish/src)
 

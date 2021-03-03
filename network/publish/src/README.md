@@ -1,4 +1,4 @@
-## Service Network in IEAM
+## Application Service Network Examples
 See corresponding `service.definition.json` file for implementation details of various service network implementation.
 
 #### Service 1

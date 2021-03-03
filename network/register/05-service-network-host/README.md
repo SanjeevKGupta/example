@@ -38,6 +38,8 @@ CONTAINER ID        IMAGE                                             COMMAND   
 ```
 docker exec -it 9699d42b84b2 /bin/sh
 ```
+
+Run following commnands.. Services are accessible using localhost network not by `service name` alias
 #### Access its own service by localhost (works)
 ```
 / # curl http://localhost:8881

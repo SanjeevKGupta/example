@@ -57,7 +57,7 @@ curl: (7) Failed to connect to localhost port 8882: Connection refused
 / # exit
 ```
 
-#### Exec into the first container
+#### Exec into the second container
 Service 2 can NOT access service 1 using service name alias
 ```
 docker exec -it <container-id> /bin/sh

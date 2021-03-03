@@ -5,7 +5,6 @@ In this example multiple services are deployed together as part of one service. 
 ### Register the edge node with the following `service-network-host` pattern
 ```
 hzn register -p "dev/pattern-sg.edge.example.network.service-network-host" --policy=node-policy-privileged.json
-
 ```
 #### Verify that the service 1 and 2 are running as before
 ```

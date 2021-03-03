@@ -1,4 +1,5 @@
-## Network configuration as `peer services`
+## Application Service Network Examples
+### Network configuration as `peer services`
 
 In this example multiple services are configured together as part of one service. Services can access each other by their service name aliases.
 

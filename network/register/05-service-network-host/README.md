@@ -11,14 +11,14 @@ hzn register -p "dev/pattern-sg.edge.example.network.service-network-host" --pol
 ```
 curl http://localhost:8881
 ```
-##### Output
+##### Output should look similar
 ```
 {"hostname":"<host-name>","service":"Service One"}
 ```
 ```
 curl http://localhost:8882
 ```
-##### Output
+##### Output should look similar
 ```
 {"hostname":"<host-name>","service":"Service Two"}
 ```
@@ -26,7 +26,7 @@ curl http://localhost:8882
 ```
 docker ps
 ```
-##### Output (Similar)
+##### Output should look similar
 ```
 CONTAINER ID        IMAGE                                             COMMAND                CREATED              STATUS              PORTS               NAMES
 86548b051a7e        edgedock/sg.edge.example.network.service2_amd64   "/bin/sh -c /two.sh"   About a minute ago   Up About a minute                       10e271bed8b64c6b92190315b55e4a123f13cdc3a294b516408692ea6e4517cd-sg.edge.example.network.service2
@@ -37,22 +37,22 @@ CONTAINER ID        IMAGE                                             COMMAND   
 ```
 docker exec -it 9699d42b84b2 /bin/sh
 ```
-#### Accessing its own service by localhost (works)
+#### Access its own service by localhost (works)
 ```
 / # curl http://localhost:8881
 {"hostname":"nuc-142-42","service":"Service One"}
 ```
-#### Accessing service from other container by localhost (works)
+#### Access service from other container by localhost (works)
 ```
 / # curl http://localhost:8882
 {"hostname":"nuc-142-42","service":"Service Two"}
 ```
-#### Accessing its own service by service-name alias (fails - there is no service-name alias)
+#### Access its own service by service-name alias (fails - there is no service-name alias)
 ```
 / # curl http://sg.edge.example.network.service1:8881
 curl: (6) Could not resolve host: sg.edge.example.network.service1
 ```
-#### Accessing other service by service-name alias (fails - there is no service-name alias)
+#### Access other service by service-name alias (fails - there is no service-name alias)
 ```
 / # curl http://sg.edge.example.network.service2:8882
 curl: (6) Could not resolve host: sg.edge.example.network.service2
@@ -62,22 +62,22 @@ curl: (6) Could not resolve host: sg.edge.example.network.service2
 ```
 docker exec -it 86548b051a7e /bin/sh
 ```
-#### Accessing service from other container by localhost (works)
+#### Access service from other container by localhost (works)
 ```
 / # curl http://localhost:8881
 {"hostname":"nuc-142-42","service":"Service One"}
 ```
-#### Accessing its own service by localhost (works)
+#### Access its own service by localhost (works)
 ```
 / # curl http://localhost:8882
 {"hostname":"nuc-142-42","service":"Service Two"}
 ```
-#### Accessing other service by service-name alias (fails - there is no service-name alias)
+#### Access other service by service-name alias (fails - there is no service-name alias)
 ```
 / # curl http://sg.edge.example.network.service1:8881
 curl: (6) Could not resolve host: sg.edge.example.network.service1
 ```
-#### Accessing its own service by service-name alias (fails - there is no service-name alias)
+#### Access its own service by service-name alias (fails - there is no service-name alias)
 ```
 / # curl http://sg.edge.example.network.service2:8882
 curl: (6) Could not resolve host: sg.edge.example.network.service2

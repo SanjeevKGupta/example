@@ -54,5 +54,5 @@ Service 1 and 2 can access each other using host network. External user can acce
 ```
 
 ## Next step  
-[Build and publish services in your IEAM envronment](https://github.com/edgedock/example/blob/master/network/publish/README.md)
+[Build and publish services in your IEAM envronment](https://github.com/edgedock/example/blob/master/network/publish)
 

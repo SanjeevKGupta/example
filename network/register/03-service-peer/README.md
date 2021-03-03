@@ -46,7 +46,7 @@ Run following commnands in the first container. Service from other container wii
 / # curl http://localhost:8881
 {"hostname":"cac88488c023","service":"Service One"}
 ```
-#### Access service from other container by localhost (fails)
+#### Access service from other container by localhost (fails - this is expected)
 ```
 / # curl http://localhost:8882
 curl: (7) Failed to connect to localhost port 8882: Connection refused
@@ -74,7 +74,7 @@ Run following commnands in the second container. Service from other container is
 / # curl http://localhost:8882
 {"hostname":"de2028114faf","service":"Service Two"}
 ```
-#### Access service from other container by localhost (fails)
+#### Access service from other container by localhost (fails - this is expected)
 ```
 / # curl http://localhost:8881
 curl: (7) Failed to connect to localhost port 8881: Connection refused

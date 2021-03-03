@@ -1,6 +1,6 @@
 ## IEAM network as `peer services`
 
-In this example multiple services are deployed together as part of one service. Services can access each other by their service name aliases.
+In this example multiple services are configured together as part of one service. Services can access each other by their service name aliases.
 
 ### Register the edge node with the following `service-peer` pattern
 ```

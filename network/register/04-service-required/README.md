@@ -1,4 +1,4 @@
-## IEAM network as `required services`
+## Network configuration using `required services`
 In this example multiple services can be deployed as `requiredServices` to configure them as lower level required services.
 
 Here service 2 is specifid as `required service` for service 1 . Hence Service 1 will be able to access Service 2 but not other way around. ***( This limiation is being revised )***
@@ -46,7 +46,7 @@ Run following commnands in the first container. Service 1 can access service 2 u
 / # curl http://localhost:8881
 {"hostname":"afc58ca12c5f","service":"Service One"}
 ```
-#### Access service from other container by localhost (faila)
+#### Access service from other container by localhost (fails - this is expected)
 ```
 / # curl http://localhost:8882
 curl: (7) Failed to connect to localhost port 8882: Connection refused
@@ -64,7 +64,7 @@ docker exec -it <container-id> /bin/sh
 ```
 
 Run following commnands in the second container. Service 2 can NOT access service 1 using service name alias
-#### Access other service by localhost (fails)
+#### Access other service by localhost (fails - this is expected)
 ```
 / # curl http://localhost:8881
 curl: (7) Failed to connect to localhost port 8881: Connection refused
@@ -74,7 +74,7 @@ curl: (7) Failed to connect to localhost port 8881: Connection refused
 / # curl http://localhost:8882
 {"hostname":"7b68daf407d7","service":"Service Two"}
 ```
-#### Access upper level service using service-name alias (fails)
+#### Access upper level service using service-name alias (fails - this is expected)
 ```
 / # curl http://sg.edge.example.network.service1:8881
 curl: (6) Could not resolve host: sg.edge.example.network.service1

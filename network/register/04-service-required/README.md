@@ -35,13 +35,13 @@ CONTAINER ID        IMAGE                                             COMMAND   
 afc58ca12c5f        edgedock/sg.edge.example.network.service1_amd64   "/bin/sh -c /one.sh"   54 seconds ago      Up 52 seconds       0.0.0.0:8881->8881/tcp   8f98d445f470bfbe040b1114b8ba7e5229dcf86c3916833a08fffe2e30254d88-sg.edge.example.network.service1
 7b68daf407d7        edgedock/sg.edge.example.network.service2_amd64   "/bin/sh -c /two.sh"   55 seconds ago      Up 54 seconds       0.0.0.0:8882->8882/tcp   dev_sg.edge.example.network.service2_1.0.0_e5d946cd-3880-44c4-a81d-91eb7764cc9c-sg.edge.example.network.service2
 ```
-#### Exec into the first container
+### Exec into the first container
 ```
 docker exec -it <container-id>  /bin/sh
 ````
 
 Run following commnands in the first container. Service 1 can access service 2 using `service name` alias of the service 2
-#### Access its own service by localhost
+#### Access its own service by localhost (works)
 ```
 / # curl http://localhost:8881
 {"hostname":"afc58ca12c5f","service":"Service One"}
@@ -51,14 +51,14 @@ Run following commnands in the first container. Service 1 can access service 2 u
 / # curl http://localhost:8882
 curl: (7) Failed to connect to localhost port 8882: Connection refused
 ```
-#### Access required service from upper level container by service-name alias
+#### Access required service from upper level container by service-name alias (works)
 ```
 / # curl http://sg.edge.example.network.service2:8882
 {"hostname":"7b68daf407d7","service":"Service Two"}
 / # exit
 ```
 
-#### Exec into the second container
+### Exec into the second container
 ```
 docker exec -it <container-id> /bin/sh
 ```

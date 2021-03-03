@@ -1,4 +1,5 @@
-## Network configuration using `required services`
+## Application Service Network Examples
+### Network configuration using `required services`
 In this example multiple services can be deployed as `requiredServices` to configure them as lower level required services.
 
 Here service 2 is specifid as `required service` for service 1 . Hence Service 1 will be able to access Service 2 but not other way around. ***( This limiation is being revised )***

@@ -1,4 +1,4 @@
-## Application Service Network Examples using IEAM 
+## Application Service Network Examples using Open-Horizon/IEAM 
 These examples illustrate various application service networks that can be configured using capabilities available in Open-Horizon/IEAM. They show how two (or more) services can be configured differently to meet the requirements of different applications.
 
 ### 1. First example service (service1)

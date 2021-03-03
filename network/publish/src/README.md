@@ -1,5 +1,5 @@
 ## Service Network in IEAM
-See corresponding `service.definition.json` file for implementation details.
+See corresponding `service.definition.json` file for implementation details of various service network implementation.
 
 #### Service 1
 [service.definition.json](https://github.com/edgedock/example/blob/master/network/publish/src/service1/horizon/service.definition.json)

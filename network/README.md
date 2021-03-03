@@ -27,9 +27,9 @@ Service 1 has access to Service 2 but Service 2 does not have access to Service 
                  |           |
                  | Service 1 |
                  |___________|
-                      /|\
                        |
-                  _____|_____     
+                       |
+                 _____\|/_____     
                  |           |
                  | Service 2 |
                  |___________|

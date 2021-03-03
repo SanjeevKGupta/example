@@ -1,6 +1,6 @@
 ## Service Networks in IEAM
 
-In these examples it is shown that how two (or more) services can be configured differently to meet different application requirements. 
+These examples show how two (or more) services can be configured differently to meet various different application requirements. 
 
 - **[Service 1](https://github.com/edgedock/example/tree/master/network/register/01-service1)**
 

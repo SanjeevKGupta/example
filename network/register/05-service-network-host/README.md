@@ -3,6 +3,8 @@
 
 In this example multiple services are deployed together as part of one service. Services can access each other by the localhost network and not by service-name alias. Using host network does not create service-name alias. This mode requires privileged access.
 
+![](../../media/service-network-host.png)
+
 ### Register the edge node with the following `service-network-host` pattern
 ```
 hzn register -p "dev/pattern-sg.edge.example.network.service-network-host" --policy=node-policy-privileged.json

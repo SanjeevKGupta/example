@@ -4,8 +4,12 @@ These examples illustrate various application service networks that can be confi
 ### 1. First example service (service1)
 service1 to be used in various examples.
 
+![](media/service1.png)
+
 ### 2. Second example service (service2)
 service2 to be used in various examples.
+
+![](media/service2.png)
 
 ### 3. Peer services (service-peer)
 Two services are configured such that they are peer to each other and can access each other by their `service-name` alias. This configuration can be extended for more than two services. For this configuration to work each service is deployed separately and then another service (called service-peer in this example) configures them together. 

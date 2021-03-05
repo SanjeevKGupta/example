@@ -13,12 +13,6 @@ Two services are configured such that they are peer to each other and can access
 Service 1 and Service 2 can access each other.
 
 ![](media/service-peer.png)
-```
-                 _____________          _____________   
-                 |           |          |           |
-                 | Service 1 |  <---->  | Service 2 |
-                 |___________|          |___________|
-```                    
 
 ### 4. Required services (service-required)
 Two services are configured such that upper level service has a lower dependent service, Deploying upper level service causes dependent lower service to be deployed automatically. This is implemented using `requiredServices` technique. Mutiple services can be configured similarly as dependent service of upper level service. 

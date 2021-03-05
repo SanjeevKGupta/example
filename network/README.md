@@ -26,18 +26,7 @@ In this configuration services can access each other using host network. Service
 
 Service 1 and 2 can access each other using host network. External user can access Service 1 and Service 2 independently as well 
 
-```
-                         |==============|
-                         |     Host     |
-                         |==============|
-                           /          \
-                          /            \
-                  ______|/_____    _____\|______   
-                  |           |    |           |
-                  | Service 1 |    | Service 2 |
-                  |___________|    |___________|
-  
-```
+![](media/service-network-host.png)
 
 ## Next  
 [Build and publish services in your IEAM envronment](https://github.com/edgedock/example/blob/master/network/publish)

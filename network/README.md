@@ -18,18 +18,8 @@ Service 1 and Service 2 can access each other.
 Two services are configured such that upper level service has a lower dependent service, Deploying upper level service causes dependent lower service to be deployed automatically. This is implemented using `requiredServices` technique. Mutiple services can be configured similarly as dependent service of upper level service. 
 
 Service 1 has access to Service 2 but Service 2 does not have access to Service 1 . ***( This limitation is being revised )***
-```
-                 _____________
-                 |           |
-                 | Service 1 |
-                 |___________|
-                       |
-                       |
-                 _____\|/_____     
-                 |           |
-                 | Service 2 |
-                 |___________|
-```
+
+![](media/service-required.png)
 
 ### 5. Network host services (service-network-host)
 In this configuration services can access each other using host network. Services are accessible externally as well. This requires privilege access.

@@ -1,7 +1,7 @@
 ## Application Service Network Examples
 ### Service 2
 
-![](media/service2.png)
+![](../../media/service2.png)
 
 Second example service to be used in peer, required and network configurations.
 

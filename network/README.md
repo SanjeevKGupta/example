@@ -11,6 +11,7 @@ service2 to be used in various examples.
 Two services are configured such that they are peer to each other and can access each other by their `service-name` alias. This configuration can be extended for more than two services. For this configuration to work each service is deployed separately and then another service (called service-peer in this example) configures them together. 
 
 Service 1 and Service 2 can access each other.
+
 ![](media/service-peer.png)
 ```
                  _____________          _____________   

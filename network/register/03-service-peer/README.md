@@ -3,6 +3,9 @@
 
 In this example multiple services are configured together as part of one service. Services can access each other by their service name aliases.
 
+![](../../media/service-peer.png)
+
+
 ### Register the edge node with the following `service-peer` pattern
 ```
 hzn register -p "dev/pattern-sg.edge.example.network.service-peer"

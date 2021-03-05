@@ -1,6 +1,8 @@
 ## Application Service Network Examples
 ### Service 1
 
+![](../../media/service1.png)
+
 First example service to be used in peer, required and network configurations.
 
 #### Register the edge device node using pattern 

@@ -8,7 +8,7 @@ Here service 2 is specifid as `required service` for service 1 . Hence Service 1
 
 ### Register the edge node with the following `service-required` pattern
 ```
-hzn register -p "dev/pattern-sg.edge.example.network.service-required"
+hzn register -p "<your-org-name>/pattern-sg.edge.example.network.service-required"
 ```
 
 #### Verify that the service 1 and 2 are running as before

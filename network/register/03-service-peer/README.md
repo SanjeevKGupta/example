@@ -8,7 +8,7 @@ In this example multiple services are configured together as part of one service
 
 ### Register the edge node with the following `service-peer` pattern
 ```
-hzn register -p "dev/pattern-sg.edge.example.network.service-peer"
+hzn register -p "<your-org-name>/pattern-sg.edge.example.network.service-peer"
 ```
 
 #### Verify that the service 1 and 2 are running

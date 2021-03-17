@@ -5,7 +5,7 @@ endif
 
 # Lets you manage and deploy different group of code across dev, demo, test, prod
 ifndef EDGE_DEPLOY
-$(error EDGE_DEPLOY is not set. Set to either dev, demo, test, prod etc. e.g: export EDGE_DEPLOY=example.visual )
+$(error EDGE_DEPLOY is not set. Set to either dev, demo, test, prod etc. e.g: export EDGE_DEPLOY=example.network )
 endif
 
 # Docker base. Usually your login account

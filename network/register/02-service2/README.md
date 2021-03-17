@@ -7,7 +7,7 @@ Second example service to be used in peer, required and network configurations.
 
 #### Register the edge device node using pattern 
 ```
-hzn register -p "dev/pattern-sg.edge.example.network.service2"
+hzn register -p "<your-org-name>/pattern-sg.edge.example.network.service2"
 ```
 
 #### Test

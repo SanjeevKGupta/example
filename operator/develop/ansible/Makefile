@@ -20,6 +20,8 @@ OPERATOR_CR_IMAGE ?= $(CR_DOCKER_HOST)/$(CR_DOCKER_USERNAME)/$(OPERATOR_DOT_NAME
 
 all: new-ansible-operator build route apply
 
+operator-tar: new-ansible-operator build route tar
+
 new-ansible-operator:
 	if [ ! -d "$(OPERATOR_DASH_NAME)" ]; then \
 		operator-sdk new "$(OPERATOR_DASH_NAME)" --type=$(OPERATOR_TYPE) --api-version="$(OPERATOR_DOT_NAME)/v1alpha1" --kind=$(OPERATOR_KIND); \
@@ -34,6 +36,9 @@ build:
 
 route:
 	cat deploy/role.yaml >> "$(OPERATOR_DASH_NAME)/deploy/role.yaml"
+
+tar:
+	cd $(OPERATOR_DASH_NAME); tar -zcvf ../../$(OPERATOR_DASH_NAME).tar.gz deploy/*
 
 apply:
 	kubectl apply -f $(OPERATOR_DASH_NAME)/deploy/crds/$(OPERATOR_DOT_NAME)_$(OPERATOR_KIND_LC)s_crd.yaml

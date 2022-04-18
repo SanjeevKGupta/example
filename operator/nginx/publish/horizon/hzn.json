@@ -1,0 +1,8 @@
+{
+    "HZN_ORG_ID": "dev",
+    "MetadataVars": {
+        "DOCKER_IMAGE_BASE": "",
+	"SERVICE_NAME": "sg.edge.example.operator.ansible.nginx",
+	"SERVICE_VERSION": "0.0.5"
+    }
+}

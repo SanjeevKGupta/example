@@ -1,7 +1,6 @@
 ### IEAM Edge Cluster Node Operator Example 
 
-How to write a Kubenetes oparator to use on IEAM edge cluster node
-==================================================================
+Writing a Kubenetes oparator to use on IEAM edge cluster node
 
 Important: You will need two compute environments -
 

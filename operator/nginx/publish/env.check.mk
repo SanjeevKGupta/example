@@ -24,6 +24,18 @@ ifndef HZN_EXCHANGE_USER_AUTH
 $(error HZN_EXCHANGE_USER_AUTH is not set. export HZN_EXCHANGE_USER_AUTH=iamapikey:<your-iamapikey> )
 endif
 
+ifndef CR_DOCKER_HOST
+$(error CR_DOCKER_HOST is not set. export CR_DOCKER_HOST=index.docker.io )
+endif
+
+ifndef CR_DOCKER_USERNAME
+$(error CR_DOCKER_USERNAME is not set. export CR_DOCKER_USERNAME=<docker-user-id> )
+endif
+
+ifndef CR_DOCKER_APIKEY
+$(error CR_DOCKER_APIKEY is not set. export CR_DOCKER_APIKEY=<docker-apikey> )
+endif
+
 #ifndef APP_BIND_HORIZON_DIR
 #$(error APP_BIND_HORIZON_DIR is not set. export APP_BIND_HORIZON_DIR=/var/local/horizon )
 #endif

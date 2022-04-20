@@ -1,6 +1,6 @@
 {
     "org": "$HZN_ORG_ID",
-    "label": "$SERVICE_NAME for $ARCH",
+    "label": "$SERVICE_NAME-$ARCH",
     "description": "",
     "public": false,
     "documentation": "",
@@ -10,14 +10,8 @@
     "sharable": "multiple",
     "requiredServices": [],
     "userInput": [
-        {
-            "name": "",
-            "label": "",
-            "type": "",
-            "defaultValue": ""
-        }
     ],
     "clusterDeployment": {
-	"operatorYamlArchive": "../operator/sg-edge-example-operator-ansible-nginx.tar.gz"
+	"operatorYamlArchive": "sg-edge-example-operator-ansible-nginx.tar.gz"
     }
 }

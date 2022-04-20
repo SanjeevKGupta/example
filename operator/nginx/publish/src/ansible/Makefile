@@ -70,7 +70,7 @@ watch:
 get-route:
 	kubectl get route -o jsonpath='{.items[0].status.ingress[0].host}'
 
-delete:
+operator-delete:
 	kubectl delete crd $(OPERATOR_KIND_LC)s.$(OPERATOR_DOT_NAME)
 	kubectl delete deployment $(OPERATOR_DASH_NAME)
 	kubectl delete serviceaccount $(OPERATOR_DASH_NAME)

@@ -44,8 +44,8 @@ push:
 	sed -i -e "s'REPLACE_IMAGE'$(OPERATOR_CR_IMAGE)'" "$(OPERATOR_DASH_NAME)/deploy/operator.yaml"
 
 route:
-	if [ -f "deploy/role.yaml" ]; then \
-		cat deploy/role.yaml >> "$(OPERATOR_DASH_NAME)/deploy/role.yaml"; \
+	if [ -f "roles/role.yaml" ]; then \
+		cat roles/role.yaml >> "$(OPERATOR_DASH_NAME)/deploy/role.yaml"; \
 	fi
 
 apply:

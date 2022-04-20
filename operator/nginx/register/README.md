@@ -19,9 +19,9 @@ hzn register -u $HZN_EXCHANGE_USER_AUTH
 cat operator.ansible.nginx.node.policy.json | hzn policy update -f-
 ```
 
-#### Watch for agreement to form 
+#### View agreement to form 
 ```
-watch hzn agreement list
+hzn agreement list
 ```
 
 #### View the running pods

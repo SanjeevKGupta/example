@@ -2,6 +2,20 @@
 
 This approach uses ansible to build the operator tar. In this implementation, `make` based build process fully automates the tasks of building the operator tar.
 
+### Pre-requisite
+- operator-sdk version
+```
+operator-sdk version
+operator-sdk version: "v0.19.4", commit: "125d0dfcc71fef4f9d7e2a42b1354cb79ffdee03", kubernetes version: "v1.18.2", go version: "go1.13.15 linux/amd64"
+```
+- kubectl version
+```
+kubectl version
+Client Version: version.Info{Major:"1", Minor:"23", GitVersion:"v0.23.0", GitCommit:"3e24949fea37244367d50a1f3a226ec20d51eef1", GitTreeState:"clean", BuildDate:"2022-04-01T12:50:14Z", GoVersion:"go1.17.5", Compiler:"gc", Platform:"linux/amd64"}
+Server Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.8+f34b40c", GitCommit:"496de02aacae03fbbd977e802b08b71ca76f390a", GitTreeState:"clean", BuildDate:"2022-05-18T18:53:42Z", GoVersion:"go1.16.12", Compiler:"gc", Platform:"linux/amd64"}
+WARNING: version difference between client (0.23) and server (1.22) exceeds the supported minor version skew of +/-1
+```
+
 ### `templates` directory 
 
 **Required**

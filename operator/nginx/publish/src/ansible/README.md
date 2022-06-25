@@ -57,7 +57,7 @@ make operator-apply
 make watch 
 kubectl get service
 kubectl get route -n openhorizon-agent
-curl <route-from-above>
+curl <route-from-above-host/port>
 ```
 **operator-delete**
 

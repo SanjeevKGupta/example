@@ -19,7 +19,7 @@ WARNING: version difference between client (0.23) and server (1.22) exceeds the 
 ### `templates` directory 
 
 **Required**
-- deployment.yaml - Responsible for creating the application pods.
+- deployment.yml - Responsible for creating the application pods.
 
 *Optional but typically always needed*
 - service.yml - To create a service to access the service provided by the application pods. 

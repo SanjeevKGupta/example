@@ -42,9 +42,12 @@ sg-edge-example-operator-ansible-nginx-5ddc68c5bd-blcw8   1/1     Running   0   
 ```
 kubectl get service -n openhorizon-agent
 
-ocp
+OCP
 kubectl get route -n openhorizon-agent
 curl nginx-route-openhorizon-agent.<node-name-host/port-from route-above>
+
+IKS
+curl $IKS_INGRESS_SUBDOMAIN:30080
 
 k3s
 curl localhost:30080

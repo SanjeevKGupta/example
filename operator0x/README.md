@@ -9,7 +9,12 @@ Important: You will need two compute environments -
 2. Second environmeent will be used to do the development of the operator. 
 
 #### Pre-reqsuiite and versions used (later version may work as well)
-Development station on ubuntu
+Development platform on Intel NUC (Others may work as well, including MacOS)
+- ubuntu
+```
+NAME="Ubuntu"
+VERSION="20.04.4 LTS (Focal Fossa)"
+```
 - docker 
 ```
 docker version

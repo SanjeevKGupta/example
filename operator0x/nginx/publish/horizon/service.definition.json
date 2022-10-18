@@ -12,6 +12,6 @@
     "userInput": [
     ],
     "clusterDeployment": {
-	"operatorYamlArchive": "sg-edge-example-operator-ansible-nginx.tar.gz"
+	"operatorYamlArchive": "sg-edge-example-operator0x-ansible-nginx.tar.gz"
     }
 }

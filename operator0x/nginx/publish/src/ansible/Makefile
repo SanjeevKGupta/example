@@ -22,13 +22,13 @@ OPERATOR_DOT_NAME_ARCH = $(OPERATOR_DOT_NAME)_$(ARCH)
 
 OPERATOR_CR_IMAGE ?= $(CR_DOCKER_HOST)/$(CR_DOCKER_USERNAME)/$(OPERATOR_DOT_NAME_ARCH):$(OPERATOR_VERSION)
 
-operator-push: new-operator build push
+operator-push: init build push
 
 operator-apply: operator-push route apply
 
 operator-tar: operator-push route tar 
 
-new-operator:
+init:
 	if [ ! -d "$(OPERATOR_DASH_NAME)" ]; then \
 		operator-sdk new "$(OPERATOR_DASH_NAME)" --type=$(OPERATOR_TYPE) --api-version="$(OPERATOR_DOT_NAME)/$(OPERATOR_API_VERSION)" --kind=$(OPERATOR_KIND); \
 	fi
@@ -56,27 +56,34 @@ apply:
 	kubectl apply -f $(OPERATOR_DASH_NAME)/deploy/operator.yaml
 	kubectl apply -f $(OPERATOR_DASH_NAME)/deploy/crds/$(OPERATOR_DOT_NAME)_v1alpha1_$(OPERATOR_KIND_LC)_cr.yaml 
 
-test:
-	curl `kubectl get route -o jsonpath='{.items[0].status.ingress[0].host}'`
-
-# Save operator tar in horizon directory and update operatorYamlArchive name
-tar:
-	cd $(OPERATOR_DASH_NAME); tar -zcvf ../../../horizon/$(OPERATOR_DASH_NAME).tar.gz deploy/*
-	sed -i -e 's/.*operatorYamlArchive.*/\t"operatorYamlArchive": "$(OPERATOR_DASH_NAME).tar.gz"/' ../../horizon/service.definition.json
-
-watch:
-	watch -n 2 kubectl get pods
-
-get-route:
-	kubectl get route -o jsonpath='{.items[0].status.ingress[0].host}'
-
-operator-delete:
+delete:
 	kubectl delete crd $(OPERATOR_KIND_LC)s.$(OPERATOR_DOT_NAME)
 	kubectl delete deployment $(OPERATOR_DASH_NAME)
 	kubectl delete serviceaccount $(OPERATOR_DASH_NAME)
 	kubectl delete rolebinding $(OPERATOR_DASH_NAME)
 	kubectl delete role $(OPERATOR_DASH_NAME)
 	rm -rf $(OPERATOR_DASH_NAME)
+
+# Save operator tar in horizon directory and update operatorYamlArchive name
+tar:
+	cd $(OPERATOR_DASH_NAME); tar -zcvf ../../../horizon/$(OPERATOR_DASH_NAME).tar.gz deploy/operator.yaml deploy/role.yaml deploy/role_binding.yaml deploy/service_account.yaml deploy/crds/*_cr.yaml deploy/crds/*_crd.yaml
+	sed -i -e 's/.*operatorYamlArchive.*/\t"operatorYamlArchive": "$(OPERATOR_DASH_NAME).tar.gz"/' ../../horizon/service.definition.json
+
+### Various tests
+ocp-get-route:
+	kubectl get route -o jsonpath='{.items[0].status.ingress[0].host}'
+
+### minikube start
+### minikube stop
+minikube-test:
+	minikube service nginx
+
+ocp-test:
+	curl `kubectl get route -o jsonpath='{.items[0].status.ingress[0].host}'`
+
+watch:
+	kubectl get pods -w
+
 
 # This imports the variables from oprator.json
 .operator.json.tmp.mk: operator.json

@@ -4,7 +4,7 @@ In this example multiple services can be deployed as `requiredServices` to confi
 
 ![](../../media/service-required.png)
 
-Here service 2 is specifid as `required service` for service 1 . Hence Service 1 will be able to access Service 2 but not other way around. ***( This limiation is being revised )***
+Here service 2 is specifid as `required service` for service 1 . Hence Service 1 will be able to access Service 2. It works other way around as well.
 
 ### Register the edge node with the following `service-required` pattern
 ```
@@ -80,7 +80,9 @@ curl: (7) Failed to connect to localhost port 8881: Connection refused
 #### Access upper level service using service-name alias (fails - this is expected)
 ```
 / # curl http://sg.edge.example.network.service1:8881
-curl: (6) Could not resolve host: sg.edge.example.network.service1
+{"hostname":"11dbd396202c","service":"Service One"}
+/ # curl http://sg.edge.example.network.service2:8882
+{"hostname":"ff3963ebcca7","service":"Service Two"}
 / # exit
 ```
 

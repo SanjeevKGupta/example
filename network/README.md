@@ -23,7 +23,7 @@ Two services are configured such that upper level service has a lower dependent 
 
 ![](media/service-required.png)
 
-Service 1 has access to Service 2 but Service 2 does not have access to Service 1 . ***( This limitation is being revised )***
+Service 1 has access to Service 2 and Service 2 has access to Service 1 as well. 
 
 ### 5. Network host services (service-network-host)
 In this configuration services can access each other using host network. Services are accessible externally as well. This requires privilege access.

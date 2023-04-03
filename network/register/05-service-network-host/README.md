@@ -9,23 +9,6 @@ In this example multiple services are deployed together as part of one service. 
 ```
 hzn register -p "<your-org-name>/pattern-sg.edge.example.network.service-network-host" --policy=node-policy-privileged.json
 ```
-#### Verify that the service 1 and 2 are running as before
-Service 1
-```
-curl http://localhost:8881
-```
-##### Output should look similar
-```
-{"hostname":"<host-name>","service":"Service One"}
-```
-Service 2
-```
-curl http://localhost:8882
-```
-##### Output should look similar
-```
-{"hostname":"<host-name>","service":"Service Two"}
-```
 
 #### View currently running containers
 ```

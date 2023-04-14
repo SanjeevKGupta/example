@@ -1,6 +1,6 @@
 ## IEAM Workload Placement Policy and Concepts
 
-Workload placement on the edge nodes is achieved by setting `Node policy, Service Policy abd Deployment Policy` appropriately. 
+Workload placement on the edge nodes is achieved by setting `Node policy, Service Policy and Deployment Policy` appropriately. 
 `Constraints` specified in the policies, work with the `properties` specified in the policies, to determine the placement of workload on the edge nodes.
 
 ## Best practice rules (BPR)

@@ -71,7 +71,7 @@ By setting appropriate deployment and node policies, two different workloads cou
 --------
 
 ### 3. Move workload from one node to another node 
-In this demo, workload will be moved from node A to a node B. This can be necesitated based on business and/or changing enviromental conditions. This makes use of BPR 1 and 3. 
+In this demo, workload will be moved from node A to node B. This can be necessitated based on business and/or changing enviromental conditions. This makes use of BPR 1 and 3. 
 
 #### `Setup`
 **1.1** Continue from example 2 above. 

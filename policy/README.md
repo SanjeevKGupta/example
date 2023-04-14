@@ -62,18 +62,21 @@ In this demo, workload will be placed on two different edge nodes - one on a nod
 **2.2** View the services on these two nodes either using Web UI or CLI. There should be none and nodes should appear `Registered` in the Web UI. 
 
 **2.3** Create `deployment policy`
-  - `deploy-policy-example-2` for `service1` with deployment constraint as `latency-ms < 10 AND (service-class == gold OR service-class == silver)`
+  - `deploy-policy-example-2-1` for `service1` with deployment constraint as `latency-ms < 10 AND (service-class == gold OR service-class == silver)`
+  - `deploy-policy-example-2-2` for `service2` with deployment constraint as `sale == true`
 
 **2.4** Add `node properties`
   - On `node-Azure` 
     - `latency-ms = 8`
     - `service-class = gold`
+    - `sale = true`
  
   - On `node-GCP`     
     - `latency-ms = 15`
     - `service-class = silver`
+    - `sale = false`
    
-**2.5** View the services on these two nodes again. After few minutes `service1` will appear on `node-Azure` and no service will appear on `node-GCP` as based on the constraints only properties of `node-Azure` qualify.
+**2.5** View the services on these two nodes again. After few minutes `service1` and `service2` will appear on `node-Azure` and no service will appear on `node-GCP` as based on the constraints only properties of `node-Azure` qualify.
 
 **2.6** Update `node properties`
   - On `node-GCP`     
@@ -85,10 +88,9 @@ In this demo, workload will be placed on two different edge nodes - one on a nod
 By setting appropriate deployment and node policies, workload could be deployed on edge nodes or get prevented from getting deployed. In the next example, this setup will be used to move workload from one node to another.
 
 --------
-[UNDER REVISION]
 
 ### 3. Move workload from one node to another node 
-In this demo, workload will be moved from node A to node B. This can be necessitated based on business and/or changing enviromental conditions. This makes use of BPR 1 and 3. 
+In this demo, workload will be moved from node A to node B. This can be necessitated based on business and/or changing enviromental conditions. 
 
 #### `Setup`
 **3.1** Continue from example 2 above. 
@@ -97,15 +99,14 @@ In this demo, workload will be moved from node A to node B. This can be necessit
   - `deploy-policy-example-3` for `service2` with deployment constraint as `latency-ms < 10 AND (service-class == gold OR service-class == silver)`
 
 
-**3.2** Change the `deployment policy` of service1 
-  - Access `deploy-policy-azure`
-  - Edit to remove the current deployment constraint `target == azure` and add deployment constraint `target == gcp` instead.
+**3.2** Modify the `deploy-policy-example-2-2` 
+  - Access `deploy-policy-example-2-2`
+  - Edit to remove the current deployment constraint `sale == true` and add deployment constraint `sale == false` instead.
   - Save and watch the effect of this changed deployment policy.
 
 **3.3** View the services on nodes node-Azure and node-GCP again. After few minutes 
-  - `service1` will disappear on `node-Azure` as no service is targeted for node-Azure anymore.
-  - `service1` will appear on `node-GCP` in addition to already running `service2` 
-  - Also node-Azure will return to `Registered` state as no service is running while other nodes continue in `Active` state. 
+  - `service2` will disappear on `node-Azure` as this service is no longer targeted for node-Azure anymore.
+  - `service2` will appear on `node-GCP` in addition to already running `service1` 
 
 #### `Result`
 By updating appropriate deployment policies, workload can be moved from one node to another, a powerful business imperative.

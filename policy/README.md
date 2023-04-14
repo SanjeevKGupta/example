@@ -22,6 +22,6 @@ Constraints specified in the policies, work with the properties specified in the
 
 A. Place workload on a node on the edge or on a node in the cloud (edge or cloud)
   
-B. Place workload on a node in the cloud A or on a node in the cloud B ( Distribute different workload on differnt clouds )
+B. Place workload on a node in the cloud A or on a node in the cloud B ( Distribute different workload on different clouds )
 
-C. Move workload from a node in the cloud A to a node in the cloud B ( Move workload based on business and/or changing enviromental condition)
+C. Move workload from node A to a node B ( Move workload based on business and/or changing enviromental conditions)

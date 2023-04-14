@@ -1,0 +1,5 @@
+FROM alpine:latest
+RUN apk --no-cache --update add socat curl
+COPY service/*.sh /
+WORKDIR /
+CMD /one.sh

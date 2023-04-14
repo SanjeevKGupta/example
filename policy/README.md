@@ -49,7 +49,7 @@ By setting appropriate deployment and node policies, two different workloads cou
 
 --------
 
-### 2. Workloads on two different clouds 
+### 2. Workloads on two different nodes with complex expression 
 In this demo, workload will be placed on two different edge nodes - one on a node in cloud A and another on a cloud B, based on some example conditions such as 
 ```
 - latency < 10ms AND

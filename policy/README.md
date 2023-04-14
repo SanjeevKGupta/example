@@ -53,22 +53,19 @@ By setting appropriate deployment and node policies, two different workloads cou
 In this demo, workload will be placed on two different edge nodes - one on a node in cloud A and another on a cloud B. This makes use of BPR 1 and 3. 
 
 #### `Setup`
+**2.1** Register two edge nodes - node-Azure and node-GCP
 
-**1.1** Publish two containerized services as workload - service1 and service2
+**2.2** View the services on these two nodes either using Web UI or CLI. There should be none and nodes should appear `Registered` in the Web UI. 
 
-**1.2** Register two edge nodes - node-Azure and node-GCP
-
-**1.3** View the services on these two nodes either using Web UI or CLI. There should be none and nodes should appear `Registered` in the Web UI. 
-
-**1.4** Create `deployment policies`
+**2.3** Create `deployment policies`
   - `deploy-policy-azure` for `service1` with deployment constraint as `target == azure`
   - `deploy-policy-gcp` for `service2` with deployment constraint as `target == gcp`
 
-**1.5** Update `node properties`
+**2.4** Update `node properties`
   - On `node-Azure` add a property `target = azure`
   - On `node-GCP` add a property `target = gcp`
 
-**1.6** View the services on these two nodes again. After few minutes `service1` will appear on `node-Azure` and `service2` will appear on `node-GCP`. Also  nodes will be `Active` in the Web UI. 
+**2.5** View the services on these two nodes again. After few minutes `service1` will appear on `node-Azure` and `service2` will appear on `node-GCP`. Also  nodes will be `Active` in the Web UI. 
 
 #### `Result`
 By setting appropriate deployment and node policies, two different workloads could be deployed on two edge nodes. This case is not very different from example 1, just that it helps build up the concept. In the next example, this setup will be used to move workload from one node to another. Very powerful business imperative.
@@ -79,14 +76,14 @@ By setting appropriate deployment and node policies, two different workloads cou
 In this demo, workload will be moved from node A to node B. This can be necessitated based on business and/or changing enviromental conditions. This makes use of BPR 1 and 3. 
 
 #### `Setup`
-**1.1** Continue from example 2 above. 
+**3.1** Continue from example 2 above. 
 
-**1.2** Change the `deployment policy` of service1 
+**3.2** Change the `deployment policy` of service1 
   - Access `deploy-policy-azure`
   - Edit to remove the current deployment constraint `target == azure` and add deployment constraint `target == gcp` instead.
   - Save and watch the effect of this changed deployment policy.
 
-**1.3** View the services on nodes node-Azure and node-GCP again. After few minutes 
+**3.3** View the services on nodes node-Azure and node-GCP again. After few minutes 
   - `service1` will disappear on `node-Azure` as no service is targeted for node-Azure anymore.
   - `service1` will appear on `node-GCP` in addition to already running `service2` 
   - Also node-Azure will return to `Registered` state as no service is running while other nodes continue in `Active` state. 

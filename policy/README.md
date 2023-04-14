@@ -50,33 +50,52 @@ By setting appropriate deployment and node policies, two different workloads cou
 --------
 
 ### 2. Workloads on two different clouds 
-In this demo, workload will be placed on two different edge nodes - one on a node in cloud A and another on a cloud B. This makes use of BPR 1 and 3. 
+In this demo, workload will be placed on two different edge nodes - one on a node in cloud A and another on a cloud B, based on some example conditions such as 
+```
+- latency < 10ms AND
+- service-class == gold OR service-class == silver
+```
 
 #### `Setup`
 **2.1** Register two edge nodes - node-Azure and node-GCP
 
 **2.2** View the services on these two nodes either using Web UI or CLI. There should be none and nodes should appear `Registered` in the Web UI. 
 
-**2.3** Create `deployment policies`
-  - `deploy-policy-azure` for `service1` with deployment constraint as `target == azure`
-  - `deploy-policy-gcp` for `service2` with deployment constraint as `target == gcp`
+**2.3** Create `deployment policy`
+  - `deploy-policy-example-2` for `service1` with deployment constraint as `latency-ms < 10 AND (service-class == gold OR service-class == silver)`
 
-**2.4** Update `node properties`
-  - On `node-Azure` add a property `target = azure`
-  - On `node-GCP` add a property `target = gcp`
+**2.4** Add `node properties`
+  - On `node-Azure` 
+    - `latency-ms = 8`
+    - `service-class = gold`
+ 
+  - On `node-GCP`     
+    - `latency-ms = 15`
+    - `service-class = silver`
+   
+**2.5** View the services on these two nodes again. After few minutes `service1` will appear on `node-Azure` and no service will appear on `node-GCP` as based on the constraints only properties of `node-Azure` qualify.
 
-**2.5** View the services on these two nodes again. After few minutes `service1` will appear on `node-Azure` and `service2` will appear on `node-GCP`. Also  nodes will be `Active` in the Web UI. 
+**2.6** Update `node properties`
+  - On `node-GCP`     
+    - `latency-ms = 9`
+
+**2.7** View the services on these two nodes again. After few minutes `service1` will appear on `node-GCP` as well as the latency value becomes compliant with the deployment policy of `service1` 
 
 #### `Result`
-By setting appropriate deployment and node policies, two different workloads could be deployed on two edge nodes. This case is not very different from example 1, just that it helps build up the concept. In the next example, this setup will be used to move workload from one node to another. Very powerful business imperative.
+By setting appropriate deployment and node policies, workload could be deployed on edge nodes or get prevented from getting deployed. In the next example, this setup will be used to move workload from one node to another.
 
 --------
+[UNDER REVISION]
 
 ### 3. Move workload from one node to another node 
 In this demo, workload will be moved from node A to node B. This can be necessitated based on business and/or changing enviromental conditions. This makes use of BPR 1 and 3. 
 
 #### `Setup`
 **3.1** Continue from example 2 above. 
+
+**3.2** Create `deployment policy`
+  - `deploy-policy-example-3` for `service2` with deployment constraint as `latency-ms < 10 AND (service-class == gold OR service-class == silver)`
+
 
 **3.2** Change the `deployment policy` of service1 
   - Access `deploy-policy-azure`

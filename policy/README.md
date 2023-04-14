@@ -16,28 +16,33 @@ References:
 - https://www.ibm.com/docs/en/eam/4.5?topic=nodes-policy-properties-constraints
 
 ## Demo examples
-**Note:** In these examples all nodes are created as VMs in one data center. The node names such as node-Edge, node-Cloud, node-Azure and node-GCP, are chsoen to illustrate the concepts.  
+**Note:** In these examples all nodes are created as VMs in one data center. The node names such as node-Edge, node-Cloud, node-Azure and node-GCP, are chsoen to illustrate the concepts. Example uses two services as workload.  
+
+### Pre-conditions
+- Publish two containerized services as workload - service1 and service2. See `publish` directory in this repo.
+  - Create containerized image for the services.
+  - Create service definition json file for the services.
+  - Publish the service into IEAM mgmt hub.
 
 ### 1. Workloads on Edge or Cloud 
 In this demo, workload will be placed on two different edge nodes - one on an edge device node and another on a cloud device node. This makes use of BPR 1 and 3. 
 
 #### `Setup`
+**1.1** Register edge nodes - node-Edge and node-Cloud
+  - Install edge agent on the edge nodes.
+  - Register the edge node into the IEAM mgmt hub.
 
-**1.1** Publish two containerized services as workload - service1 and service2
+**1.2** View the services on these two nodes either using Web UI or CLI. There should be none and nodes should appear `Registered` in the Web UI. 
 
-**1.2** Register two edge nodes - node-Edge and node-Cloud
-
-**1.3** View the services on these two nodes either using Web UI or CLI. There should be none and nodes should appear `Registered` in the Web UI. 
-
-**1.4** Create `deployment policies`
+**1.3** Create `deployment policies`
   - `deploy-policy-edge` for `service1` with deployment constraint as `target == edge`
   - `deploy-policy-cloud` for `service2` with deployment constraint as `target == cloud`
 
-**1.5** Update `node properties`
+**1.4** Update `node properties`
   - On `node-Edge` add a property `target = edge`
   - On `node-Cloud` add a property `target = cloud`
 
-**1.6** View the services on these two nodes again. After few minutes `service1` will appear on `node-Edge` and `service2` will appear on `node-Cloud`. Also  nodes will be `Active` in the Web UI. 
+**1.5** View the services on these two nodes again. After few minutes `service1` will appear on `node-Edge` and `service2` will appear on `node-Cloud`. Also nodes will be `Active` in the Web UI. 
 
 #### `Result`
 By setting appropriate deployment and node policies, two different workloads could be deployed on two edge nodes. 

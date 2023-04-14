@@ -16,8 +16,9 @@ References:
 - https://www.ibm.com/docs/en/eam/4.5?topic=nodes-policy-properties-constraints
 
 ## Demo examples
+**Note:** In these examples all nodes are created as VMs in one data center. The node names such as node-Edge, node-Cloud, node-Azure and node-GCP, are chsoen to illustrate the concepts.  
 
-### 1. Edge or Cloud 
+### 1. Workloads on Edge or Cloud 
 In this demo, workload will be placed on two different edge nodes - one on an edge device node and another on a cloud device node.
 
 #### `Setup`
@@ -41,9 +42,33 @@ In this demo, workload will be placed on two different edge nodes - one on an ed
 #### `Result`
 By setting appropriate deployment and node policies, two different workloads could be deployed on two edge nodes. 
 
+--------
 
-### 2. Two different clouds 
+### 2. Workloads on two different clouds 
 In this demo, workload will be placed on two different edge nodes - one on a node in cloud A and another on a cloud B.
 
-### 3. Move workload from one node to another 
+#### `Setup`
+
+**1.1** Publish two containerized services as workload - service1 and service2
+
+**1.2** Register two edge nodes - node-Azure and node-GCP
+
+**1.3** View the services on these two nodes either using Web UI or CLI. There should be none and nodes should appear `Registered` in the Web UI. 
+
+**1.4** Create `deployment policies`
+  - `deploy-policy-azure` for `service1` with deployment constraint as `target == azure`
+  - `deploy-policy-gcp` for `service2` with deployment constraint as `target == gcp`
+
+**1.5** Update `node properties`
+  - On `node-Azure` add a property `target = azure`
+  - On `node-GCP` add a property `target = gcp`
+
+**1.6** View the services on these two nodes again. After few minutes `service1` will appear on `node-Azure` and `service2` will appear on `node-GCP`. Also  nodes will be `Active` in the Web UI. 
+
+#### `Result`
+By setting appropriate deployment and node policies, two different workloads could be deployed on two edge nodes. This case is not very different from example 1, just that it helps build up the concept. In the next example, this setup will be used to move workload from one node to another. Very powerful business imperative.
+
+### 3. Move workload from one node to another node 
 In this demo, workload will be moved from node A to a node B. This can be necesitated based on business and/or changing enviromental conditions.
+
+

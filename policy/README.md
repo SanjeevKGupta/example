@@ -19,7 +19,7 @@ References:
 **Note:** In these examples all nodes are created as VMs in one data center. The node names such as node-Edge, node-Cloud, node-Azure and node-GCP, are chsoen to illustrate the concepts.  
 
 ### 1. Workloads on Edge or Cloud 
-In this demo, workload will be placed on two different edge nodes - one on an edge device node and another on a cloud device node. This makes use of BPR 1 and 2. 
+In this demo, workload will be placed on two different edge nodes - one on an edge device node and another on a cloud device node. This makes use of BPR 1 and 3. 
 
 #### `Setup`
 
@@ -45,7 +45,7 @@ By setting appropriate deployment and node policies, two different workloads cou
 --------
 
 ### 2. Workloads on two different clouds 
-In this demo, workload will be placed on two different edge nodes - one on a node in cloud A and another on a cloud B. This makes use of BPR 1 and 2. 
+In this demo, workload will be placed on two different edge nodes - one on a node in cloud A and another on a cloud B. This makes use of BPR 1 and 3. 
 
 #### `Setup`
 
@@ -71,7 +71,7 @@ By setting appropriate deployment and node policies, two different workloads cou
 --------
 
 ### 3. Move workload from one node to another node 
-In this demo, workload will be moved from node A to a node B. This can be necesitated based on business and/or changing enviromental conditions. This makes use of BPR 1, 2 and 3. 
+In this demo, workload will be moved from node A to a node B. This can be necesitated based on business and/or changing enviromental conditions. This makes use of BPR 1 and 3. 
 
 #### `Setup`
 **1.1** Continue from example 2 above. 

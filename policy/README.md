@@ -97,7 +97,7 @@ In this demo, workload will be moved from node A to node B. This can be necessit
 
 **3.2** Modify the `deploy-policy-example-2-2` 
   - Access `deploy-policy-example-2-2`
-  - Edit to remove the current deployment constraint `sale == true` and add deployment constraint `sale == false` instead.
+  - Edit to modify the current deployment constraint `sale == true` to `sale == false` instead.
   - Save and watch the effect of this changed deployment policy.
 
 **3.3** View the services on nodes node-Azure and node-GCP again. After few minutes 

@@ -95,10 +95,6 @@ In this demo, workload will be moved from node A to node B. This can be necessit
 #### `Setup`
 **3.1** Continue from example 2 above. 
 
-**3.2** Create `deployment policy`
-  - `deploy-policy-example-3` for `service2` with deployment constraint as `latency-ms < 10 AND (service-class == gold OR service-class == silver)`
-
-
 **3.2** Modify the `deploy-policy-example-2-2` 
   - Access `deploy-policy-example-2-2`
   - Edit to remove the current deployment constraint `sale == true` and add deployment constraint `sale == false` instead.

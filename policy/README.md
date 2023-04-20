@@ -15,6 +15,15 @@ References:
 - https://www.ibm.com/docs/en/eam/4.5?topic=nodes-node-policy
 - https://www.ibm.com/docs/en/eam/4.5?topic=nodes-policy-properties-constraints
 
+## Service grouping - a related concept
+Services are the deployable units and policies manage their deployment on edge nodes. Though a typical and most granular use of the policy is to manage each service independently, tt's possible to group the services couple of ways.
+
+### 1. Peer service group
+Create a top level service and include each participating peer service in that group in the deployment section of the service-definition. Then have one deployment policy for the top level service.
+
+### 2. Dependednt service group
+Use required service syntax of the service-definition to group them as dependent service(s). Then have one deployment service for the top level service.
+
 ## Demo examples
 **Note:** In these examples all nodes are created as VMs in one data center. The node names such as node-Edge, node-Cloud, node-Azure and node-GCP, are chsoen to illustrate the concepts. Example uses two services as workload.  
 

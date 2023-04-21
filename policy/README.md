@@ -21,7 +21,7 @@ Services are the deployable units and policies manage their deployment on edge n
 ### 1. Peer service group
 Create a top level service and include each participating peer service in that group in the deployment section of the service-definition. Then have one deployment policy for the top level service.
 
-### 2. Dependednt service group
+### 2. Dependent service group
 Use required service syntax of the service-definition to group them as dependent service(s). Then have one deployment service for the top level service.
 
 ## Demo examples

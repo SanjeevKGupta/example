@@ -10,6 +10,8 @@ agent-5bbdd76b67-mlmw8   1/1     Running   1          12d
 
 #### Register the node without a node policy
 
+Note **hzn** is alias to  `kubectl exec -it <agent-pod-id> -n openhorizon-agent -- hzn`
+
 ```
 export HZN_EXCHANGE_NODE_AUTH="<node-name>:<node-auth-key>"
 hzn exchange node create -n $HZN_EXCHANGE_NODE_AUTH -u $HZN_EXCHANGE_USER_AUTH -T cluster

@@ -49,6 +49,7 @@ kubectl get route -n openhorizon-agent
 curl nginx-route-openhorizon-agent.<node-name-host/port-from route-above>
 
 IKS
+export IKS_INGRESS_SUBDOMAIN=$(kubectl get cm ibm-cloud-cluster-ingress-info -n kube-system -o 'jsonpath={.data.ingress-subdomain}')
 curl $IKS_INGRESS_SUBDOMAIN:30080
 
 k3s

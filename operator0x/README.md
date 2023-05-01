@@ -8,7 +8,7 @@ Important: You will need two compute environments -
 
 2. Second environmeent will be used to do the development of the operator. 
 
-#### Pre-reqsuiite and versions used (later version may work as well)
+#### Pre-requisite and versions used (later version may work as well)
 Development platform on Intel NUC (Others may work as well, including MacOS)
 - ubuntu
 ```

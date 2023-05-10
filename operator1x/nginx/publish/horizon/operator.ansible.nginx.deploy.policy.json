@@ -1,0 +1,24 @@
+{
+  "label": "$SERVICE_NAME Deployment Policy",
+  "description": "Horizon Deployment Policy for operator.ansible.nginx",
+  "service": {
+    "name": "$SERVICE_NAME",
+    "org": "$HZN_ORG_ID",
+    "arch": "*",
+    "serviceVersions": [
+      {
+        "version": "$SERVICE_VERSION",
+        "priority":{}
+      }
+    ]
+  },
+  "properties": [
+  ],
+  "constraints": [
+      "owner == $EDGE_OWNER",
+      "deploy == $EDGE_DEPLOY",
+      "ansible.nginx == true"
+  ],
+  "userInput": [
+  ]
+}

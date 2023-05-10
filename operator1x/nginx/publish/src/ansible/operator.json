@@ -1,0 +1,8 @@
+{
+    "MetadataVars": {
+	"OPERATOR_API_VERSION" : "v1",
+	"OPERATOR_KIND" : "NginxOperator",
+	"OPERATOR_VERSION" : "1.28.1",
+	"OPERATOR_IMAGE_NAME" : "nginx"
+    }
+}

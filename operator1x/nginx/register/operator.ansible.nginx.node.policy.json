@@ -1,0 +1,10 @@
+{
+  "properties": [
+      { "name": "owner",  "value": "sg.edge" },
+      { "name": "deploy",  "value": "example.operator1x" },
+      { "name": "ansible.nginx", "value": true },
+      { "name": "openhorizon.allowPrivileged", "value": true }
+  ],
+  "constraints": [
+  ]
+}

@@ -11,6 +11,7 @@ Must setup following in your development environment
 - [docker](#docker)
 - [operator-sdk](#operator-sdk)
 - [kubectl](#kubectl)
+- [kustomize](#kustomize)
 - [go](#go)
 - [minikube](#minikube)
 
@@ -38,6 +39,11 @@ operator-sdk version: "v1.28.1", commit: "b05f6a56a176a98b7d92c4d4b36076967e0d77
 ```
 kubectl version
 Client Version: version.Info{Major:"1", Minor:"25", GitVersion:"v1.25.2", GitCommit:"31aa3e89a926f81aa0af30320ffcb71acadf3015", GitTreeState:"clean", BuildDate:"2023-04-07T11:17:33Z", GoVersion:"go1.19.6", Compiler:"gc", Platform:"linux/amd64"}
+```
+#### kustomize
+```
+kustomize version
+v5.0.1
 ```
 #### go
 ```

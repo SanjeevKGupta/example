@@ -4,7 +4,7 @@
 
 2. Development requires 
    - Preparing `operator tar`
-   - Publishing service using the `oprartor tar` 
+   - Publishing service using the `operator tar` 
    - Creating a pattern or publishing deployment policy
 
 3. Create a horizon directory with `hzn.json` and `service.definition.json` similar to this example. This section is important for edge cluster based deployment 

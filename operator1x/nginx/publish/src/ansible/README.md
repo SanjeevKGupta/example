@@ -31,6 +31,10 @@ v5.0.1
 minikube version
 minikube version: v1.30.1
 ```
+```
+minikube start
+minikube stop
+```
 
 ### `templates` directory 
 

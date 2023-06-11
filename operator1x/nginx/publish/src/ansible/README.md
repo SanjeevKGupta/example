@@ -5,7 +5,9 @@
 - `kustomzie` and `sed` is used in the Makefile to modify some of the template files.
 - Review the make targets in the Makefile to study what is being changed. 
 
-**Note:** The operator building using Operator-SDK 1.x is very different from Operator-SDK 0.x version.
+**Note:** 
+1. The operator building using Operator-SDK 1.x is very different from Operator-SDK 0.x version.
+2. Developed on UBuntu 22.04.2 LTS. MacOS works but `sed` used in Makefile works differently and causues issue.
 
 ### Pre-requisites
 #### operator-sdk
@@ -31,10 +33,12 @@ v5.0.1
 minikube version
 minikube version: v1.30.1
 ```
+- To start/stop minikube
 ```
 minikube start
 minikube stop
 ```
+- To view example service output
 ```
 curl $(minikube ip):30080
 ```
@@ -81,6 +85,7 @@ make watch
 kubectl get service
 kubectl get route -n openhorizon-agent
 curl <route-from-above-host:port>
+curl $(minikube ip):30080
 ```
 **make undeploy**
 

@@ -103,7 +103,7 @@ kube-system   kube-dns                                        ClusterIP   10.96.
 sg-edge       edge-nginx-controller-manager-metrics-service   ClusterIP   10.110.159.50   <none>        8443/TCP                 27s
 sg-edge       nginx                                           NodePort    10.96.210.156   <none>        80:30080/TCP             13s
 ```
-- View example service output (part if output content removed for brevity)
+- View example service output (part of output content removed for brevity)
 ```
 curl $(minikube ip):30080
 

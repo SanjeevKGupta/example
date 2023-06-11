@@ -1,5 +1,9 @@
-### Verify the service deployment on the edge cluster node 
+## Verify the service deployment on the edge cluster node 
 
+- [Service deployment](#service-deployment) 
+- [k3s cluster](k3s-cluster)
+
+### Service deployment
 You can use either Web UI or CLI to update the node policy in line with the deployment constraint of the service.
 Updating the node policy will result into deployment of the operator and all the objacts that the operator needs to deploy. 
 
@@ -10,7 +14,7 @@ Updating the node policy will result into deployment of the operator and all the
 ```
 hzn policy update --input-file=operator.ansible.nginx.node.policy.json
 ```
-#### k3s cluster
+### k3s cluster
 - Pods running on deployed edge cluster
 ``` 
 kubectl get pods -A
@@ -39,7 +43,7 @@ kube-system   metrics-server                                  ClusterIP      10.
 kube-system   traefik                                         LoadBalancer   10.43.126.207   9.30.230.245   80:32170/TCP,443:32082/TCP   35d
 default       docker-registry-service                         NodePort       10.43.153.89    <none>         5000:30514/TCP               35d
 sg-edge       edge-nginx-controller-manager-metrics-service   ClusterIP      10.43.72.65     <none>         8443/TCP                     64s
-sg-edge       nginx   NodePort       10.43.56.205    <none>         80:30080/TCP                 52s
+sg-edge       nginx                                           NodePort       10.43.56.205    <none>         80:30080/TCP                 52s
 ```
 - View example service output (part of output content removed for brevity)
 ```

@@ -1,5 +1,15 @@
 # Sets the scope so that multiple users can use the same instance
 
+BLACK=\033[0;30m
+BBLACK=\033[1;30m
+RED=\033[0;31m
+BRED=\033[1;31m
+GREEN=\033[0;32m
+BGREEN=\033[1;32m
+ORANGE=\033[0;33m
+BORANGE=\033[1;33m
+NC=\033[0m
+
 export ARCH ?= $(shell hzn architecture)
 
 ifndef EDGE_OWNER

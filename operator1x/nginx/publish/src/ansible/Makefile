@@ -35,6 +35,8 @@ operator-tar: operator-push tar
 
 init:
 	if [ ! -d "$(OPERATOR_GROUP_NAME)" ]; then \
+		echo ""; \
+		echo "${BGREEN}Initializing files using Operator SDK in $(OPERATOR_GROUP_NAME) ... ${NC}"; \
 		mkdir "$(OPERATOR_GROUP_NAME)"; \
 		cd "$(OPERATOR_GROUP_NAME)"; \
 		operator-sdk init --plugins $(OPERATOR_TYPE) --domain "$(OPERATOR_DOT_NAME)" --group $(OPERATOR_GROUP_NAME) --version "$(OPERATOR_API_VERSION)" --kind $(OPERATOR_KIND) --generate-role ; \
@@ -49,23 +51,36 @@ init:
 		if [ -f "../tasks/route.yml" ]; then \
 			cp ../tasks/route.yml roles/$(OPERATOR_KIND_LC)/tasks/. ; \
 		fi \
+	else \
+		echo ""; \
+		echo "${BGREEN}Initialized files already exists in $(OPERATOR_GROUP_NAME) ... ${NC}"; \
 	fi
 
 build:
+	@echo ""
+	@echo "${BGREEN}Building operator docker image ... ${NC}"; \
 	cd $(OPERATOR_GROUP_NAME); make docker-build IMG="$(OPERATOR_CR_IMAGE)"
 
 push:
+	@echo ""
+	@echo "${BGREEN}Pushing operator image into docker... ${NC}"; \
 	docker login -u $(CR_DOCKER_USERNAME) -p $(CR_DOCKER_APIKEY) $(CR_DOCKER_HOST)
 	cd $(OPERATOR_GROUP_NAME); make docker-push IMG="$(OPERATOR_CR_IMAGE)"
 
 deploy:
+	@echo ""
+	@echo "${BGREEN}Deploying operator image and application on cluster in kubconfig ... ${NC}"; \
 	cd $(OPERATOR_GROUP_NAME); make deploy IMG="$(OPERATOR_CR_IMAGE)"
 	kubectl apply -f "$(OPERATOR_GROUP_NAME)/config/samples/$(OPERATOR_GROUP_NAME)_$(OPERATOR_API_VERSION)_$(OPERATOR_KIND_LC).yaml"
 
 undeploy:
+	@echo ""
+	@echo "${BGREEN}Undeploying application from cluster ... ${NC}"; \
 	cd $(OPERATOR_GROUP_NAME); make undeploy
 
 clean: 
+	@echo ""
+	@echo "${BGREEN}Undeploying application from cluster and removing the init files ... ${NC}"; \
 	cd $(OPERATOR_GROUP_NAME); make undeploy; cd ..; rm -rf "$(OPERATOR_GROUP_NAME)"
 
 test:
@@ -73,6 +88,8 @@ test:
 
 # Save operator tar in horizon directory and update operatorYamlArchive name
 tar:
+	@echo ""
+	@echo "${BGREEN}Creating operator-tar to publish in IEAM ... ${NC}"; \
 	cd $(OPERATOR_GROUP_NAME); \
 	mkdir -p tmp; \
 	cd config/manager && kustomize edit set image controller="$(OPERATOR_CR_IMAGE)" ; cd ../.. ; \

@@ -64,7 +64,7 @@ curl $(minikube ip):30080
 An initialization file to capture operator variables. Simialr to hzn.json
 
 ### Make targets
-Make sure to have logged in a kubernetes cluster - OCP, k3s, iks etc.
+`minikube` is used during developmebt. Make sure to have logged in a kubernetes cluster - OCP, k3s, iks etc. 
 
 **operator-push**
 
@@ -120,7 +120,7 @@ curl $(minikube ip):30080
 
 ```
 
-*Verify running of the application*  
+**Verify running of the application*  
 ```
 make watch 
 kubectl get service

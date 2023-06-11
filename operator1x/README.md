@@ -14,8 +14,7 @@ Must setup following in your development environment
 - [kustomize](#kustomize)
 - [go](#go)
 - [minikube](#minikube)
-- ibmcloud CLI(#ibmcloud-cli)
-- https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/
+- [ibmcloud CLI](#ibmcloud-cli)
 
 #### ubuntu
 Development platform on Ubuntu VM. Other OS would work as well.

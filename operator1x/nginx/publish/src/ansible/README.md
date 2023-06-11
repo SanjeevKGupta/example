@@ -35,6 +35,9 @@ minikube version: v1.30.1
 minikube start
 minikube stop
 ```
+```
+curl $(minikube ip):30080
+```
 
 ### `templates` directory 
 

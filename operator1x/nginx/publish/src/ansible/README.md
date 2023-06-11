@@ -78,6 +78,47 @@ Runs operator-push and also does `make deploy` to deploy the app on the cluster 
 ```
 make operator-deploy
 ```
+- Pods during development
+```
+$kubectl get pods -A
+
+NAMESPACE     NAME                                             READY   STATUS    RESTARTS       AGE
+kube-system   coredns-787d4945fb-9jzps                         1/1     Running   4 (14h ago)    39d
+kube-system   etcd-minikube                                    1/1     Running   4 (7d2h ago)   39d
+kube-system   kube-apiserver-minikube                          1/1     Running   4 (7d2h ago)   39d
+kube-system   kube-controller-manager-minikube                 1/1     Running   4 (7d2h ago)   39d
+kube-system   kube-proxy-6cwpp                                 1/1     Running   4 (14h ago)    39d
+kube-system   kube-scheduler-minikube                          1/1     Running   4 (7d2h ago)   39d
+kube-system   storage-provisioner                              1/1     Running   8 (14h ago)    39d
+sg-edge       edge-nginx-controller-manager-68cdb66bcf-pvh8j   2/2     Running   0              22s
+sg-edge       nginx-7c9d479656-wbtg2                           1/1     Running   0              10s
+```
+- Services during development
+```
+$ kubectl get svc -A
+
+NAMESPACE     NAME                                            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                  AGE
+default       kubernetes                                      ClusterIP   10.96.0.1       <none>        443/TCP                  39d
+kube-system   kube-dns                                        ClusterIP   10.96.0.10      <none>        53/UDP,53/TCP,9153/TCP   39d
+sg-edge       edge-nginx-controller-manager-metrics-service   ClusterIP   10.110.159.50   <none>        8443/TCP                 27s
+sg-edge       nginx                                           NodePort    10.96.210.156   <none>        80:30080/TCP             13s
+```
+- View example service output (part if output content removed for brevity)
+```
+curl $(minikube ip):30080
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+....
+....
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+```
 
 *Verify running of the application*  
 ```

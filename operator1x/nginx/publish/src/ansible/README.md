@@ -7,7 +7,7 @@
 
 **Note:** 
 1. The operator building using Operator-SDK 1.x is very different from Operator-SDK 0.x version.
-2. Developed on UBuntu 22.04.2 LTS. MacOS works but `sed` used in Makefile works differently and causues issue.
+2. Developed on UBuntu 22.04.2 LTS. MacOS works but `sed` used in Makefile works differently and causes issue. `\n` based regex works differently. 
 
 ### Pre-requisites
 #### operator-sdk

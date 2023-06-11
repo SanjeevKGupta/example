@@ -1,7 +1,7 @@
 ## Verify the service deployment on the edge cluster node 
 
 - [Service deployment](#service-deployment) 
-- [k3s cluster](k3s-cluster)
+- [k3s cluster](#k3s-cluster)
 
 ### Service deployment
 You can use either Web UI or CLI to update the node policy in line with the deployment constraint of the service.

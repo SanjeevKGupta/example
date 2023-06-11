@@ -57,5 +57,17 @@ minikube version
 minikube version: v1.30.1
 ```
 #### ibmcloud CLI
-Download binary and install `ibmcloud` in /usr/local/bin/
-- https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/
+- Download binary and install `ibmcloud` in /usr/local/bin/
+  -  https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/
+
+- Login with your IBM Cloud cred
+```
+ibmcloud login --sso
+```
+- Install ks plugin
+``` 
+ibmcloud plugin install ks
+```
+
+
+

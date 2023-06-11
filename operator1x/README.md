@@ -14,6 +14,8 @@ Must setup following in your development environment
 - [kustomize](#kustomize)
 - [go](#go)
 - [minikube](#minikube)
+- ibmcloud CLI(#ibmcloud-cli)
+- https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/
 
 #### ubuntu
 Development platform on Ubuntu VM. Other OS would work as well.
@@ -55,3 +57,6 @@ go version go1.20.4 linux/amd64
 minikube version
 minikube version: v1.30.1
 ```
+#### ibmcloud CLI
+Download binary and install `ibmcloud` in /usr/local/bin/
+- https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/

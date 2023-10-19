@@ -1,5 +1,10 @@
 ## Verify the service deployment on the edge cluster node 
 
+### Pre-requisite
+- k8s cluster with edge-agent deployed such as
+  - microk8s
+  - OCP
+
 - [Service deployment](#service-deployment) 
 - [k3s cluster](#k3s-cluster)
 

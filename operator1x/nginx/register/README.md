@@ -2,8 +2,8 @@
 
 ### Pre-requisite
 - k8s cluster with edge-agent deployed such as
-  - microk8s
-  - OCP
+  - [microk8s](https://www.ibm.com/docs/en/eam/4.5?topic=clusters-preparing-edge-cluster#install_microk8s_edge_cluster)
+  - [OCP](https://www.ibm.com/docs/en/eam/4.5?topic=clusters-preparing-edge-cluster#install_ocp_edge_cluster)
 
 - [Service deployment](#service-deployment) 
 - [k3s cluster](#k3s-cluster)

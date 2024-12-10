@@ -1,7 +1,7 @@
 {
     "MetadataVars": {
 	"IMAGE_NAME": "ansible.nginx",
-	"SERVICE_NAME": "$(EDGE_OWNER).$(EDGE_DEPLOY).ansible.nginx",
+	"SERVICE_NAME": "${EDGE_OWNER}.${EDGE_DEPLOY}.ansible.nginx",
 	"SERVICE_VERSION": "0.0.5"
     }
 }

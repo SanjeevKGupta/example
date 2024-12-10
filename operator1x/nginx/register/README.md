@@ -17,7 +17,7 @@ Updating the node policy will result into deployment of the operator and all the
   
 - CLI on the node
 ```
-hzn policy update --input-file=operator.ansible.nginx.node.policy.json
+cat operator.ansible.nginx.node.policy.json | hzn policy update -f-
 ```
 ### k3s cluster
 - Pods running on deployed edge cluster
